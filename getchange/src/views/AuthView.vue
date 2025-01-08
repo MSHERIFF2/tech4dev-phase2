@@ -1,6 +1,10 @@
 <template>
   <div>
-        <AuthLayout />
+        <AuthLayout>
+          <div>
+            
+          </div>
+        </AuthLayout>
   </div>
 </template>
 
