@@ -1,15 +1,20 @@
 <template>
-    <div>
-        <h1>This is sign in page</h1>
-    </div>
+   <AuthLayout>
+    <Details/>
+   </AuthLayout>
 </template>
 <script>
+import AuthLayout from '@/layouts/AuthLayout.vue';
+import Details from '@/components/Details.vue';
 export default{
     name: 'SignIn',
     data() {
         return {
-            
+
         }
+    },
+    components: {
+        AuthLayout, Details
     }
 }
 </script>

@@ -28,10 +28,7 @@
             </div>
             <div class=" justify-center items-center bg-black-900">
                 <slot/>
-                <div class ="justify-end" >
-                        <router-link to="/DashBoard" class="bg-green-500 rounded text-white p-3 w-30 m-auto">Continue</router-link>
-                </div>
-
+                
             </div>
            
             <div class="text-gray-700 flex justify-between text-sm font-light items-center text-gray-700">
