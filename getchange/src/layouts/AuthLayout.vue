@@ -1,5 +1,5 @@
 <template>
-    <div class="flex w-screen h-screen">
+    <div class="flex w-screen h-screen justify-between items-between">
         <div class=" w-2/5 h-full relative">
             <img :src="currentImageSrc" alt="currentImage" class="h-full w-full object-cover absolute inset-0 z-0" />
             <div class=" inset-0 z-20 absolute ">
@@ -20,18 +20,17 @@
                 </div>
             </div>
         </div>
-        <div class=" w-3/5 flex flex-col h-full p-6 ">
-            <div class="w-full h-full mx-20 my-10">
+        <div class=" w-3/5 flex flex-col h-full p-3  m-auto relative">
+            <div class=" mx-20 my-5 ]">
                 <h1 class="text-blue-900 font-bold text-xl">Create your free account</h1>
                 <p class="text-black-400 font-light text-l">Already registered? <router-link to="/SignIn"
                         class="text-green-500 font-semibold text-l">Sign in</router-link> </p>
             </div>
-            <div class=" justify-center items-center bg-black-900">
-                <slot/>
-                
+            <div class="mx-20 flex-grow border-4 border-gray-900 my-10">
+                <slot />
             </div>
-           
-            <div class="text-gray-700 flex justify-between text-sm font-light items-center text-gray-700">
+
+            <div class="text-gray-700 flex justify-between text-sm font-light items-center text-gray-700  ">
                 <div class="">By siging up, you agree to our <a class="text-green-500 font-semibold">Terms</a> and
                     Privacy <a class="text-green-500 font-semibold">Policy</a></div>
                 <div class="">© 2019 Tinylabs. All rights reserved.</div>

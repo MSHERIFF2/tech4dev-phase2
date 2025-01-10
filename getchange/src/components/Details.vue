@@ -1,12 +1,12 @@
 <template>
-    <div>
+    <div class="">
         <form action="">
-            <div>
-                <div>
+            <div class="flex justify-between">
+                <div class="flex flex-col">
                     <label for="firstName">First Name</label>
                     <input type="text" class="">
                 </div>
-                <div>
+                <div class="flex flex-col">
                     <label for="lasttName">Last Name</label>
                     <input type="text" class="">
                 </div>
