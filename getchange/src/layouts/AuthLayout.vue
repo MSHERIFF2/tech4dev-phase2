@@ -26,7 +26,7 @@
                 <p class="text-black-400 font-light text-l">Already registered? <router-link to="/SignIn"
                         class="text-green-500 font-semibold text-l">Sign in</router-link> </p>
             </div>
-            <div class="mx-20 flex-grow border-4 border-gray-900 my-10">
+            <div class="mx-20 flex-grow  my-10">
                 <slot />
             </div>
 
