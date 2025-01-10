@@ -9,9 +9,9 @@
                         adipiscing
                         elit, sed do eiusmod.</div>
                     <div class="flex  items-center space-x-4">
-                        <div class="w-5 h-5 flex items-center justify-center border border-gray-400  rounded-full"
+                        <div class="w-5 h-5 flex items-center justify-center border border-gray-400  rounded-full" :class="currentImage === image ? 'border-gray-400' : 'border-transparent'"
                             v-for="image in images" :key="image">
-                            <button class="w-2.5 h-2.5 rounded-full border"
+                            <button class="w-2.5 h-2.5 rounded-full border" :class="currentImage === image ? 'bg-green-700':'bg-gray-200'"
                                 @click="currentImage = image "></button>
                         </div>
                     </div>
