@@ -26,13 +26,11 @@
                 <p class="text-black-400 font-light text-l">Already registered? <router-link to="/SignIn"
                         class="text-green-500 font-semibold text-l">Sign in</router-link> </p>
             </div>
-            <div>
-                <slot class="w-[50%] h-auto m-auto border-4">
-                    <div class = "flex flex-col border-1 rounded-2" >
+            <div class=" justify-center items-center bg-black-900">
+                <slot/>
+                <div class ="justify-end" >
                         <router-link to="/DashBoard" class="bg-green-500 rounded text-white p-3 w-30 m-auto">Continue</router-link>
-                    </div>
-                    
-                </slot>
+                </div>
 
             </div>
            
