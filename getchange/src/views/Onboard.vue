@@ -1,12 +1,12 @@
 <template>
     <AuthLayout>
-        <div class=" m-auto p-0 h-full rounded-xl shadow-xl shadow-grey-300">
-            <div class="justify-center items-center">
-                <h1>Great to have you onboard</h1>
+        <div class=" m-auto p-12 h-full rounded-xl shadow-xl shadow-grey-300 justify-center items-center">
+            <div class=" my-6 mx-6 text-center">
+                <h1 class="text-blue-900 font-bold ">Great to have you onboard</h1>
                 <p>We just mailed you a confirmation link to josh.bakery@gmail.com. Complete registration by following the link.</p>
             </div>
-       <div>
-        <router-link to = "/DashBoard" class="bg-green-500 text-white p-3 text-center m-auto">DashBoard</router-link>
+       <div class="my-6 mx-6">
+        <router-link to = "/DashBoard" class=" rounded-l flex w-1/5 bg-green-500 text-white p-3 text-center m-auto">DashBoard</router-link>
        </div>
         
     </div>
