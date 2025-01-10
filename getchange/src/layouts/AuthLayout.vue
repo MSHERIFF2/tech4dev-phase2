@@ -21,15 +21,21 @@
             </div>
         </div>
         <div class=" w-3/5 flex flex-col h-full p-6 ">
-            <div class="w-full h-full m-5">
+            <div class="w-full h-full mx-20 my-10">
                 <h1 class="text-blue-900 font-bold text-xl">Create your free account</h1>
-                <p class="text-black-400 font-light text-l">Already registered? <a href="#" class="text-green-500 font-semibold text-l">Sign in</a> </p>
+                <p class="text-black-400 font-light text-l">Already registered? <router-link to="/SignIn"
+                        class="text-green-500 font-semibold text-l">Sign in</router-link> </p>
             </div>
             <div>
-                <slot />
+                <slot class="w-[50%] h-auto m-auto border-4">
+                    <div class = "flex flex-col border-1 rounded-2" >
+                        <router-link to="/DashBoard" class="bg-green-500 rounded text-white p-3 w-30 m-auto">Continue</router-link>
+                    </div>
+                    
+                </slot>
 
             </div>
-
+           
             <div class="text-gray-700 flex justify-between text-sm font-light items-center text-gray-700">
                 <div class="">By siging up, you agree to our <a class="text-green-500 font-semibold">Terms</a> and
                     Privacy <a class="text-green-500 font-semibold">Policy</a></div>
@@ -39,6 +45,8 @@
     </div>
 </template>
 <script>
+
+
 export default {
     name: 'AuthLayout',
     data() {
