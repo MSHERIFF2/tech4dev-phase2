@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 
 import AuthView from '@/views/AuthView.vue'
 
-import HomeView from '@/views/HomeView.vue'
+// import HomeView from '@/views/HomeView.vue'
 
 Vue.use(VueRouter)
 
@@ -18,8 +18,8 @@ const routes = [
     name: 'AuthView',
     component: AuthView
   }
- 
- 
+
+
 ]
 
 const router = new VueRouter({
