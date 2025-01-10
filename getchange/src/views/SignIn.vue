@@ -1,11 +1,13 @@
 <template>
-   <AuthLayout>
-    <Details/>
-   </AuthLayout>
+  <div>
+    <Login/>
+  </div>
+    
+  
 </template>
 <script>
-import AuthLayout from '@/layouts/AuthLayout.vue';
-import Details from '@/components/Details.vue';
+
+import Login from '@/components/Login.vue'
 export default{
     name: 'SignIn',
     data() {
@@ -14,7 +16,7 @@ export default{
         }
     },
     components: {
-        AuthLayout, Details
+        Login
     }
 }
 </script>
