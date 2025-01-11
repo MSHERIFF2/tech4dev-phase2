@@ -27,7 +27,7 @@ const routes = [
     component: Onboard,
   },
   {
-    path: '/DasBboard',
+    path: '/DashBoard',
     name: 'DashBoard',
     component: DashBoard,
   },
