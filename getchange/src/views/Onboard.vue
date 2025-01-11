@@ -1,5 +1,5 @@
 <template>
-    <AuthLayout>
+    <OnboardLayout>
         <div class=" m-auto p-12 h-full rounded-xl shadow-xl shadow-grey-300 justify-center items-center">
             <div class=" my-6 mx-6 text-center">
                 <h1 class="text-blue-900 font-bold ">Great to have you onboard</h1>
@@ -10,13 +10,14 @@
        </div>
         
     </div>
-    </AuthLayout>
+    </OnboardLayout>
     
 </template>
 <script>
-import AuthLayout from '@/layouts/AuthLayout.vue';
+import OnboardLayout from '@/layouts/OnboardLayout.vue';
+
 export default {
     name: 'Onboard',
-    components: {AuthLayout}
+    components: {OnboardLayout}
 }
 </script>
