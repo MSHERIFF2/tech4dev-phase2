@@ -6,7 +6,7 @@
                 <p>We just mailed you a confirmation link to josh.bakery@gmail.com. Complete registration by following the link.</p>
             </div>
        <div class="my-6 mx-6">
-        <router-link to = "/DashBoard" class=" rounded-l flex w-1/5 bg-green-500 text-white p-3 text-center m-auto">DashBoard</router-link>
+        <router-link to = "/DashBoard" class=" rounded-xl flex w-2/5 bg-green-500 text-white p-3 text-center m-auto">DashBoard</router-link>
        </div>
         
     </div>
