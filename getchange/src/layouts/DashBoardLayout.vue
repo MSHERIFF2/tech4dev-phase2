@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-col">
 
-        <div class="top red-500 text-center">
+        <div class="top red-500 text-center bg-[#FFFFFF]">
             <slot />
         </div>
         <div class="flex justify-between my-6 cyan-900">
