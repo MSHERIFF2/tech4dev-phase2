@@ -1,13 +1,15 @@
 <template>
    <DashBoardLayout>
-     <h1> This is a user dashboard details </h1>
+     <Dashboard/>
    </DashBoardLayout>
 </template>
 
 <script>
+
+import Dashboard from '@/components/Dashboard.vue';
 import DashBoardLayout from '@/layouts/DashBoardLayout.vue';
 export default {
    name: 'DashBoard',
-   components: { DashBoardLayout }
+   components: { DashBoardLayout, Dashboard }
 }
 </script>

@@ -59,7 +59,7 @@
                 </svg>
 
             </div>
-            <div class="middle ">
+            <div class="middle  w-full h-full p-12">
                 <slot />
             </div>
             <div class="right ">
