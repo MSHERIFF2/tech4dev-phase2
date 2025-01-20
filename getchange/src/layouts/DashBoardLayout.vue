@@ -64,7 +64,7 @@
             </div>
             <div class="right ">
                 <div class="w-full h-full bg-white">
-                    <div class="w-80 h-60 bg-[#013C61] p-6 rounded-xl items-around flex flex-col">
+                    <div class="w-80 h-60 bg-[#013C61] p-6 rounded items-around flex flex-col gap-y-2 ">
                         <p class="text-white mb-7">GETCHANGE WIDGET</p>
                         <div class="flex justify-between w-20 mt-4">
                             <span class="text-[#FFFFFF80]">Amount</span>
@@ -91,37 +91,59 @@
                             </div>
 
                         </div>
-                        <p class="text-3xl text-[#FFFFFF] text-center tracking-wider font-semibold mt-14">08012345678</p>
+                        <p class="text-3xl text-[#FFFFFF] text-center tracking-wider font-semibold mt-8">08012345678
+                        </p>
 
                     </div>
                     <div>
-                        <div class="w-full bg-[#2BDA5333] flex justify-around items-center gap-x-4">
+                        <div class="w-full bg-[#2BDA5333] flex justify-around items-center gap-x-4 py-2">
                             <div>C</div>
-                            <div> < </div>
-                            <div> > </div>
-                            <div> X </div>
-                        </div>
-                        <div class="flex ">
-                            <div class="w-4/5 h-full">
-                                <div>1</div>
-                                <div>2</div>
-                                <div>3</div>
-                                <div>4</div>
-                                <div>5</div>
+                            <div>
+                                < </div>
+                                    <div> > </div>
+                                    <div> x </div>
                             </div>
-                            <div class="bg-[#2BDA5333] w-20 h-full"></div>
-                        </div>
-                    </div>
-                    <div class="gap-y-4 flex flex-col p-6">
-                        <button class="bg-[#FFFFFF] rounded-xl p-2 border">Query</button>
-                        <button class="bg-[#2BDA53] p-2 border-none text-[#FFFFFF]">Generate</button>
-                    </div>
+                            <div class="flex ">
+                                <div class="w-4/5 h-full flex flex-col justify-around gap-y-4 py-2">
+                                    <div class="flex justify-around">
+                                       
+                                        <div>1</div>
+                                        <div>2</div>
+                                        <div>3</div>
+                                        
+                                    </div>
+                                    <div class="flex justify-around">
+                                        <div>4</div>
+                                        <div>5</div>
+                                        <div>6</div>
+                                        
+                                    </div>
+                                    <div class="flex justify-around">
+                                        <div>7</div>
+                                        <div>8</div>
+                                        <div>9</div>
+                                        
+                                    </div>
 
+                                </div>
+                                <div class="bg-[#2BDA5333] w-16 h-full flex flex-col items-center gap-y-4 gap-x-4">
+                                    <div> * </div>
+                                    <div> # </div>
+                                    <div> 0</div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gap-y-4 flex flex-col p-6">
+                            <button class="bg-[#FFFFFF] rounded p-2 border">Query</button>
+                            <button class="bg-[#2BDA53] p-2 border-none text-[#FFFFFF]">Generate</button>
+                        </div>
+
+                    </div>
                 </div>
             </div>
-        </div>
 
-    </div>
+        </div>
 
 </template>
 <script>
