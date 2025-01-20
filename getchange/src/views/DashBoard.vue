@@ -1,6 +1,6 @@
 <template>
    <DashBoardLayout>
-     
+     <h1> This is a user dashboard details </h1>
    </DashBoardLayout>
 </template>
 

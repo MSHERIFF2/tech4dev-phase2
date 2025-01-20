@@ -5,6 +5,8 @@ import DashBoard from '@/views/DashBoard.vue'
 import SignUp from '@/views/SignUp.vue'
 import SignUpContinue from '@/views/SignUpContinue.vue'
 import Onboard from '@/views/Onboard.vue'
+import Profile from '@/views/Profile.vue'
+import MyCard from '@/views/MyCard.vue'
 
 
 Vue.use(VueRouter)
@@ -30,6 +32,17 @@ const routes = [
     path: '/DashBoard',
     name: 'DashBoard',
     component: DashBoard,
+  },
+  {
+    path: '/Profile',
+    name: 'Profile',
+    component: Profile,
+  },
+  
+  {
+    path: '/MyCard',
+    name: 'MyCard',
+    component: MyCard,
   },
   {
     path: '/SignIn',
