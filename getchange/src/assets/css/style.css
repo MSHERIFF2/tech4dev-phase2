@@ -675,6 +675,10 @@ video {
   display: flex;
 }
 
+.table {
+  display: table;
+}
+
 .h-2\.5 {
   height: 0.625rem;
 }
