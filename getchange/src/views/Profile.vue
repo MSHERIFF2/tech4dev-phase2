@@ -1,12 +1,15 @@
 <template>
-    <DashBoardLayout>
-        This is profile page
+    <DashBoardLayout >
+      <ProfileComponent/>
     </DashBoardLayout>
-</template>
-<script>
-import DashBoardLayout from '@/layouts/DashBoardLayout.vue';
-export default {
+ </template>
+ 
+ <script>
+ 
+ import ProfileComponent from '@/components/ProfileComponent.vue';
+ import DashBoardLayout from '@/layouts/DashBoardLayout.vue';
+ export default {
     name: 'Profile',
-    components: { DashBoardLayout }
-}
-</script>
+    components: { DashBoardLayout, ProfileComponent }
+ }
+ </script>

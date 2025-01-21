@@ -1,5 +1,5 @@
 <template>
-   <DashBoardLayout>
+   <DashBoardLayout >
      <Dashboard/>
    </DashBoardLayout>
 </template>
