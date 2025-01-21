@@ -29,18 +29,18 @@ const routes = [
     component: Onboard,
   },
   {
-    path: '/DashBoard',
+    path: '/app/DashBoard',
     name: 'DashBoard',
     component: DashBoard,
   },
   {
-    path: '/Profile',
+    path: '/app/Profile',
     name: 'Profile',
     component: Profile,
   },
   
   {
-    path: '/MyCard',
+    path: '/app/MyCard',
     name: 'MyCard',
     component: MyCard,
   },

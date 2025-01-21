@@ -29,34 +29,11 @@
         </div>
         <div class="flex border justify-between w-full h-full">
             <div class="left bg-[#FFFFFF] w-15 p-3   flex flex-col gap-y-10  border">
-                <svg @click = "toggle(1, '/DashBoard')" class="hover:border-green-500 border-white border-l-4" width="28" height="28" viewBox="0 0 22 22"  xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M8.24963 1.37544H1.37444V8.25062H8.24963V1.37544ZM8.24963 9.62506H1.37444C0.615301 9.62506 0 9.00976 0 8.25062V1.37544C0 0.6163 0.615301 0 1.37444 0H8.24963C9.00876 0 9.62506 0.6163 9.62506 1.37544V8.25062C9.62506 9.00976 9.00876 9.62506 8.24963 9.62506ZM8.24963 13.7504H1.37444V20.6256H8.24963V13.7504ZM8.24963 22H1.37444C0.615301 22 0 21.3847 0 20.6256V13.7504C0 12.9902 0.615301 12.3749 1.37444 12.3749H8.24963C9.00876 12.3749 9.62506 12.9902 9.62506 13.7504V20.6256C9.62506 21.3847 9.00876 22 8.24963 22ZM20.6246 1.37544H13.7494V8.25062H20.6246V1.37544ZM20.6246 9.62506H13.7494C12.9902 9.62506 12.3749 9.00976 12.3749 8.25062V1.37544C12.3749 0.6163 12.9902 0 13.7494 0H20.6246C21.3837 0 22 0.6163 22 1.37544V8.25062C22 9.00976 21.3837 9.62506 20.6246 9.62506ZM20.6246 13.7504H13.7494V20.6256H20.6246V13.7504ZM20.6246 22H13.7494C12.9902 22 12.3749 21.3847 12.3749 20.6256V13.7504C12.3749 12.9902 12.9902 12.3749 13.7494 12.3749H20.6246C21.3837 12.3749 22 12.9902 22 13.7504V20.6256C22 21.3847 21.3837 22 20.6246 22Z"
-                        :fill="activeSvg === 1 ?  gn :gray"/>
-                </svg>
-                <svg @click = "toggle(2, '/Profile')" class="hover:border-green-500 border-white border-l-4" width="28" height="28" viewBox="0 0 24 21" fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg">
-                    <g opacity="0.5">
-                        <path
-                            d="M17 19.3333V17.2963C17 15.0463 15.2091 13.2222 13 13.2222H5C2.79086 13.2222 1 15.0463 1 17.2963V19.3333"
-                            :stroke="activeSvg === 2 ? gn : gray" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M9 9.14815C11.2091 9.14815 13 7.32412 13 5.07407C13 2.82403 11.2091 1 9 1C6.79086 1 5 2.82403 5 5.07407C5 7.32412 6.79086 9.14815 9 9.14815Z"
-                            :stroke="activeSvg === 2 ? gn : gray " stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M23 19.3333V17.2963C22.9986 15.4396 21.765 13.8188 20 13.3546" :stroke="activeSvg === 2 ? gn : gray "
-                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                        <path
-                            d="M16 1.13242C17.7699 1.59398 19.0078 3.21833 19.0078 5.07917C19.0078 6.94002 17.7699 8.56437 16 9.02593"
-                            :stroke="activeSvg === 2 ? gn : gray " stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    </g>
-                </svg>
-                <svg @click = "toggle(3, '/MyCard')" class="hover:border-green-500 border-white border-l-4" width="28" height="28" viewBox="0 0 24 18" fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg">
-                    <g opacity="0.5">
-                        <rect x="1" y="1" width="22" height="16" rx="2" :stroke="activeSvg === 3 ? gn : gray " stroke-width="1.5"
-                            stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M1 7H23" :stroke="activeSvg === 3 ? gn : gray " stroke-width="1.5" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                    </g>
-                </svg>
+               <button v-for = "route in routes" @click = "goToRoute(route.route)" 
+               :class="activeRoute === route.route ? 'text-green-500' : 'text-gray-500' ">
+                <component :is="route.icon"/>
+
+               </button>
 
             </div>
             <div class="middle  w-full h-full p-12">
@@ -147,24 +124,67 @@
 
 </template>
 <script>
+import {HomeIcon, MyCardIcon, ContactIcon} from '@/components/Icons/Icon'
 export default {
     name: "DashBoardLayout",
+    components: {HomeIcon, MyCardIcon, ContactIcon},
     data() {
         return {
-            user: "Hi User",
-            gray: '#013C61',
-            gn : '#2BDA53',
-            activeSvg: null
+            routes : [
+                {
+                    name: 'DashBoard',
+                    icon: 'HomeIcon',
+                    route: 'DashBoard'
+                },
+                {
+                    name: 'Profile',
+                    icon: 'ContactIcon',
+                    route: 'Profile'
+                },
+                {
+                    name: 'MyCard',
+                    icon: "MyCardIcon",
+                    route: 'MyCard'
+                },
+            ]
         }
     },
-    methods: {
-        toggle(num, route) {
-            this.activeSvg = num
-            if (this.$route.path !== route){
-                this.$router.replace(route)
+    computed:{
+        activeRoute(){
+ let activeRoute = 'DashBoard'
+ switch (this.$route.name) {
+    case 'DashBoard':
+        activeRoute = 'DashBoard'
+        break;
+    case 'Profile':
+        activeRoute = 'Profile'
+        break;
+    case 'MyCard':
+        activeRoute = 'MyCard'
+        break;
+
+   
+    default:
+        activeRoute = 'DashBoard'
+        
+ }
+ return activeRoute;
         }
+        
+       
+
+    },
+    methods: {
+        goToRoute(name){
+            if (this.$route.name !== name){
+                this.$router.push({name: name})
+            } else
+            {
+                console.log("Already on the desire route")
+            }
             
         }
+        
     }
 
 }

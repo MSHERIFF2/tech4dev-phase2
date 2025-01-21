@@ -1,5 +1,5 @@
 <template>
-   <AuthLayout>
+  
     <div class=" m-auto p-0 h-full rounded-xl shadow-xl shadow-grey-300">
         <form action="" class=" p-6 h-full text-gray-900">
             <div class="flex justify-between flex-grow my-6 flex-col">
@@ -26,11 +26,11 @@
        
     </div>
     
-   </AuthLayout>
+
     
 </template>
 <script>
-import AuthLayout from '@/layouts/AuthLayout.vue';
+
 export default{
     name: 'SignUpContinue',
     data() {
@@ -38,7 +38,7 @@ export default{
             msg: "This is business detail page"
         }
     },
-    components: {AuthLayout, }
+   
 }
 </script>
 

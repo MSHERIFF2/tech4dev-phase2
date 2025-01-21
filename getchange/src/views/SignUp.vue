@@ -1,6 +1,6 @@
 <template>
   
-    <Details />
+    <Details/>
   
 </template>
 <script>

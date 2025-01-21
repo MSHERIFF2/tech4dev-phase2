@@ -21,7 +21,7 @@ export default {
 
   computed: {
     currentLayout(){
-     return this.$route.path.includes('SignUp') ? 'AuthLayout' : 'DashBoardLayout';
+     return this.$route.path.includes('app') ? 'DashBoardLayout' : 'AuthLayout';
     }
   }
 }
