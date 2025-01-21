@@ -1,10 +1,10 @@
 <template>
-   <AuthLayout>
-    <Details/>
-   </AuthLayout>
+  
+    <Details />
+  
 </template>
 <script>
-import AuthLayout from '@/layouts/AuthLayout.vue';
+
 import Details from '@/components/Details.vue';
 export default{
     name: 'SignUp',
@@ -14,7 +14,7 @@ export default{
         }
     },
     components: {
-        AuthLayout, Details
+       Details
     }
 }
 </script>

@@ -1,12 +1,14 @@
 <template>
-    <DashBoardLayout>
+    <div>
         This is My Card Page
-    </DashBoardLayout>
+    </div>
+        
+   
 </template>
 <script>
-import DashBoardLayout from '@/layouts/DashBoardLayout.vue';
+
 export default {
     name: 'MyCard',
-    components: { DashBoardLayout }
+  
 }
 </script>
