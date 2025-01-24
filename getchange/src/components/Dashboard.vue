@@ -1,6 +1,6 @@
 <template>
-    <div class="container flex flex-col w-full h-full">
-        <div class="top w-['100%'] flex-col  mt-4">
+    <div class="flex flex-col border border-4 w-auto">
+        <div class="top  flex-col  mt-4">
             <div class="flex justify-between items-center w-2xl m-4 bg-white px-2 py-1 rounded">
                 <span class="text-[#013C61] text-xl">Store Wallet</span>
                 <span class=" font-bold text-xl text-[#013C61]"> ₦ 2,500
@@ -16,28 +16,28 @@
             </div>
 
         </div>
-        <div class="middl w-full p-6">
-            <div class="wrapper text-[#013C61] flex justify-between items-center w-full">
+        <div class="middlez w-full p-6">
+            <div class=" text-[#013C61] flex justify-between items-center w-full">
                 <span>Recent Activities</span>
                 <div class="flex justify-around items-center gap-x-3">
                     <button>1</button>
                     <span>of</span>
                     <span>8</span>
                     <div class="flex justify-around items-center gap-x-3">
-                        <button class="text-xs rounded-full w-4 h-4 bg-[#2BDA53] text-[#FFFFFF]">
-                            < </button>
+                        <button class="text-xs rounded-full w-16 h-8 bg-[#2BDA53] text-[#FFFFFF]">
+                            &lt; </button>
 
-                                <button class=" text-xs rounded-full w-4 h-4 bg-[#2BDA53] text-[#FFFFFF]">
-                                    >
+                                <button class=" text-xs rounded-full w-16 h-8 bg-[#2BDA53] text-[#FFFFFF]">
+                                    &gt;
                                 </button>
 
                     </div>
                 </div>
             </div>
         </div>
-        <div class="bottom w-full h-full">
-            <table class="w-full">
-                <thead class="w-full">
+        <div class="table-container max-w-4xl mx-auto mt-4">
+            <table class=" table-auto w-full text-left border-separate border-spacing-y-2">
+                <thead>
                     <tr class="w-full flex justify-evenly items-center gap-x-3">
                         <th>#</th>
                         <th>Description</th>
@@ -47,7 +47,7 @@
                         <th>Amount</th>
                     </tr>
                 </thead>
-                <tbody class="w-full">
+                <tbody>
                     <tr class="w-full flex justify-evenly items-center text-[#6A7E8A] bg-[#FFFFFF] rounded my-4 p-3 gap-x-3 " v-for="contribution in contributionLog" :key="contribution['#']">
                         <td>{{ contribution['#'] }}</td>
                         <td>{{ contribution['Description'] }}</td>

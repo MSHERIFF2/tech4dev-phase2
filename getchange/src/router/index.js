@@ -7,6 +7,7 @@ import SignUpContinue from '@/views/SignUpContinue.vue'
 import Onboard from '@/views/Onboard.vue'
 import Profile from '@/views/Profile.vue'
 import MyCard from '@/views/MyCard.vue'
+import Cart from '@/components/Cart.vue'
 
 
 Vue.use(VueRouter)
@@ -45,10 +46,16 @@ const routes = [
     component: MyCard,
   },
   {
+    path: '/app/Cart',
+    name: 'Cart',
+    component: Cart,
+  },
+  {
     path: '/SignIn',
     name: 'SignIn',
     component: SignIn,
   },
+  
  
 ]
 

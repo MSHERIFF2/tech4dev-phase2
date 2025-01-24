@@ -1,19 +1,19 @@
 <template>
-    <div class="w-full h-fit bg-gray-100 flex flex-col">
+    <div class="w-full h-full">
        <DbTop/>
-        <div class="flex border justify-between w-full h-full">
+        <div class="flex border justify-between">
             <div class="left bg-[#FFFFFF] w-15 p-3   flex flex-col gap-y-10  border">
                <button v-for = "route in routes" @click = "goToRoute(route.route)" 
-               :class="activeRoute === route.route ? 'text-green-500' : 'text-gray-500' ">
+               :class="activeRoute === route.route ? 'text-green-500' : 'text-gray-500' " class="p-3">
                 <component :is="route.icon"/>
 
                </button>
 
             </div>
-            <div class="middle  w-full h-full p-12">
+            <div class="w-full h-auto">
                 <slot />
             </div>
-            <div class="right ">
+            <div class="right w-auto">
                 <div class="w-full h-full bg-white">
                     <div class="w-80 h-60 bg-[#013C61] p-6 rounded items-around flex flex-col gap-y-2 ">
                         <p class="text-white mb-7">GETCHANGE WIDGET</p>
@@ -98,12 +98,12 @@
 
 </template>
 <script>
-import {HomeIcon, MyCardIcon, ContactIcon} from '@/components/Icons/Icon'
+import {HomeIcon, MyCardIcon, ContactIcon, CartIcon} from '@/components/Icons/Icon'
 import DbTop from '@/components/DbTop.vue';
 
 export default {
     name: "DashBoardLayout",
-    components: {HomeIcon, MyCardIcon, ContactIcon, DbTop},
+    components: {HomeIcon, MyCardIcon, ContactIcon, DbTop, CartIcon},
     data() {
         return {
             routes : [
@@ -122,6 +122,12 @@ export default {
                     icon: "MyCardIcon",
                     route: 'MyCard'
                 },
+                {
+                    name: 'Cart',
+                    icon: "CartIcon",
+                    route: 'Cart'
+                },
+              
             ]
         }
     },
@@ -137,6 +143,9 @@ export default {
         break;
     case 'MyCard':
         activeRoute = 'MyCard'
+        break;
+    case 'Cart':
+        activeRoute = 'Cart'
         break;
 
    
