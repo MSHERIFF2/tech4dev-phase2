@@ -35,7 +35,7 @@
                 </div>
             </div>
         </div>
-        <div class="table-container max-w-4xl mx-auto mt-4">
+        <div class="w-full mt-4">
             <table class=" table-auto w-full text-left border-separate border-spacing-y-2">
                 <thead>
                     <tr class="w-full flex justify-evenly items-center gap-x-3">
