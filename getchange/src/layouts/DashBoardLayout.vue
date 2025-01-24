@@ -17,9 +17,9 @@
                 <div class="w-full h-full bg-white">
                     <div class="w-80 h-60 bg-[#013C61] p-6 rounded items-around flex flex-col gap-y-2 ">
                         <p class="text-white mb-7">GETCHANGE WIDGET</p>
-                        <div class="flex justify-between w-20 mt-4">
-                            <span class="text-[#FFFFFF80]">Amount</span>
-                            <span class="w-1 text-[#FFFFFF6A]">_________________________</span>
+                        <div class="flex justify-between w-20 mt-4 gap-x-4 items-center">
+                            <label class="text-[#FFFFFF80]">Amount</label>
+                            <input type="number" class=" bg-[#013C61]  w-64 text-[#FFFFFF6A] border-b-2 border-gray-400"/>
 
                         </div>
                         <div class="flex justify-around">

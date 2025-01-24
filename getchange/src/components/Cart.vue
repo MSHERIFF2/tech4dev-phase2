@@ -1,6 +1,6 @@
 <template>
-    <div class="shadow-xl  rounded-xl m-auto flex flex-col  p-6 w-full my-6">
-        <div>
+    <div class="shadow-xl  rounded-xl m-auto flex flex-col flex-grow h-screen overflow-y-auto p-6 w-full my-6">
+        <div >
             <h1>Cart box</h1>
             <div v-if="Cart.length === 0"> Cart is empty</div>
             <ul v-for="(item, index) in Cart" :key="index">
@@ -9,7 +9,7 @@
                 </li>
             </ul>
         </div>
-        <div class="flex  p-3">
+        <div class="flex  p-3" >
             <button @click="listMode" class="bg-pink-500  rounded p-3">List view</button>
             <button @click="gridMode" class="bg-green-500 text-white rounded p-3 mx-4">Grid View</button>
 
