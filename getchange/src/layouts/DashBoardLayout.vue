@@ -113,21 +113,22 @@ export default {
                     route: 'DashBoard'
                 },
                 {
+                    name: 'Cart',
+                    icon: "CartIcon",
+                    route: 'Cart'
+                },
+                {
                     name: 'Profile',
                     icon: 'ContactIcon',
                     route: 'Profile'
                 },
+               
+               
                 {
                     name: 'MyCard',
                     icon: "MyCardIcon",
                     route: 'MyCard'
                 },
-                {
-                    name: 'Cart',
-                    icon: "CartIcon",
-                    route: 'Cart'
-                },
-              
             ]
         }
     },
