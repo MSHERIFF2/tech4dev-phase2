@@ -1,7 +1,10 @@
 <template>
     <div class="flex bg-white justify-between h-15 w-full ">
         <div class="w-full">
-            <GetChangeIcon  />
+            <RouterLink to="/">
+                <GetChangeIcon />
+            </RouterLink>
+
         </div>
 
 
@@ -29,17 +32,13 @@
 
     </div>
 </template>
-<script>
+<script setup>
+import { ref } from 'vue';
 
 
+import { GetChangeIcon, CircleIcon } from './Icons/Icon';
 
-import { GetChangeIcon, CartIcon, CircleIcon } from './Icons/Icon';
-export default {
-    components: { GetChangeIcon, CartIcon, CircleIcon },
-    data() {
-        return {
-            user: "Hi User"
-        }
-    }
-}
+
+const user = ref('Hi User')
+
 </script>

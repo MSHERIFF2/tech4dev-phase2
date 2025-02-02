@@ -29,16 +29,5 @@
 
     
 </template>
-<script>
 
-export default{
-    name: 'SignUpContinue',
-    data() {
-        return {
-            msg: "This is business detail page"
-        }
-    },
-   
-}
-</script>
 

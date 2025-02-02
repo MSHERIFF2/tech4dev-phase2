@@ -39,11 +39,10 @@
         </div>
     </div>
 </template>
-<script>
-export default {
-    data() {
-        return {
-            contributionLog: [
+<script setup>
+import { ref } from 'vue';
+          const  contributionLog = ref(
+            [
                 {
                     "#": 1,
                     "Description": "Monthly Contribution",
@@ -94,8 +93,6 @@ export default {
                 }
             ]
 
-        }
-
-    }
-}
+          ) 
+ 
 </script>

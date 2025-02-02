@@ -13,10 +13,3 @@
    
     
 </template>
-<script>
-
-export default {
-    name: 'Onboard',
-    
-}
-</script>

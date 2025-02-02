@@ -1,7 +1,8 @@
 <template>
     <div class="flex w-screen h-screen justify-between items-between">
         <div class=" w-2/5 h-full relative">
-            <img :src="currentImageSrc" alt="currentImage" class="h-full w-full object-cover absolute inset-0 z-0" />
+            <img v-bind:src="currentImageSrc" alt="currentImage"
+                class="h-full w-full object-cover absolute inset-0 z-0" />
             <div class=" inset-0 z-20 absolute ">
                 <div class=" w-full h-full flex flex-col justify-end pb-14 text-white items-center">
                     <div class="font-semibold text-xl">No Hazzles</div>
@@ -38,40 +39,29 @@
         </div>
     </div>
 </template>
-<script>
+<script setup>
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
 
+const currentImage = ref('male.png');
+const images = ['male.png', 'female.png'];
+let intervalId = ref(null);
 
-export default {
-    name: 'AuthLayout',
-    data() {
-        return {
-            currentImage: 'male.png',
-            images: ['male.png', 'female.png'],
-            intervalId: null
-        };
-    },
-    computed: {
-        currentImageSrc() {
-            return (require(`@/assets/images/${this.currentImage}`))
-        }
-    },
-    methods: {
-        setImageRotation() {
-            let currentIndex = this.images.indexOf(this.currentImage)
-            this.intervalId = setInterval(() => {
-                currentIndex = (currentIndex + 1) % this.images.length;
-                this.currentImage = this.images[currentIndex]
+const currentImageSrc = computed(() => `/images/${currentImage.value}`, import.meta.url);
+const setImageRotation = () => {
+    let currentIndex = images.indexOf(currentImage.value);
+    intervalId = setInterval(() => {
+        currentIndex = (currentIndex + 1) % images.length;
+        currentImage.value = images[currentIndex];
+    }, 5000);
+};
 
-            }, 5000);
-        }
-    },
-    mounted() {
-        this.setImageRotation()
-    },
-    beforeDestroy() {
-        if (this.intervalId) {
-            clearInterval(this.intervalId)
-        }
+onMounted(() => {
+    setImageRotation();
+});
+
+onBeforeUnmount(() => {
+    if (intervalId) {
+        clearInterval(intervalId);
     }
-}
+});
 </script>

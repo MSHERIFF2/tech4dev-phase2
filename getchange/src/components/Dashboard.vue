@@ -27,9 +27,9 @@
                         <button class="text-xs rounded-full w-16 h-8 bg-[#2BDA53] text-[#FFFFFF]">
                             &lt; </button>
 
-                                <button class=" text-xs rounded-full w-16 h-8 bg-[#2BDA53] text-[#FFFFFF]">
-                                    &gt;
-                                </button>
+                        <button class=" text-xs rounded-full w-16 h-8 bg-[#2BDA53] text-[#FFFFFF]">
+                            &gt;
+                        </button>
 
                     </div>
                 </div>
@@ -48,7 +48,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="w-full flex justify-evenly items-center text-[#6A7E8A] bg-[#FFFFFF] rounded my-4 p-3 gap-x-3 " v-for="contribution in contributionLog" :key="contribution['#']">
+                    <tr class="w-full flex justify-evenly items-center text-[#6A7E8A] bg-[#FFFFFF] rounded my-4 p-3 gap-x-3 "
+                        v-for="contribution in contributionLog" :key="contribution['#']">
                         <td>{{ contribution['#'] }}</td>
                         <td>{{ contribution['Description'] }}</td>
                         <td>{{ contribution['Date'] }}</td>
@@ -61,63 +62,58 @@
         </div>
     </div>
 </template>
-<script>
-export default {
-    data() {
-        return {
-            contributionLog: [
-                {
-                    "#": 1,
-                    "Description": "Monthly Contribution",
-                    "Date": "2022-01-15",
-                    "Time": "10:00 AM",
-                    "Staff": "John Doe",
-                    "Amount": 500.00
-                },
-                {
-                    "#": 2,
-                    "Description": "Monthly Contribution",
-                    "Date": "2022-01-15",
-                    "Time": "10:05 AM",
-                    "Staff": "Jane Smith",
-                    "Amount": 500.00
-                },
-                {
-                    "#": 3,
-                    "Description": "Monthly Contribution",
-                    "Date": "2022-01-15",
-                    "Time": "10:10 AM",
-                    "Staff": "Michael Brown",
-                    "Amount": 500.00
-                },
-                {
-                    "#": 4,
-                    "Description": "Monthly Contribution",
-                    "Date": "2022-01-15",
-                    "Time": "10:15 AM",
-                    "Staff": "Emily Davis",
-                    "Amount": 500.00
-                },
-                {
-                    "#": 5,
-                    "Description": "Monthly Contribution",
-                    "Date": "2022-01-15",
-                    "Time": "10:20 AM",
-                    "Staff": "David Lee",
-                    "Amount": 500.00
-                },
-                {
-                    "#": 6,
-                    "Description": "Monthly Contribution",
-                    "Date": "2022-01-15",
-                    "Time": "10:25 AM",
-                    "Staff": "Sarah Taylor",
-                    "Amount": 500.00
-                }
-            ]
-
-        }
-
+<script setup>
+import { ref } from 'vue';
+const contributionLog = ref([
+    {
+        "#": 1,
+        "Description": "Monthly Contribution",
+        "Date": "2022-01-15",
+        "Time": "10:00 AM",
+        "Staff": "John Doe",
+        "Amount": 500.00
+    },
+    {
+        "#": 2,
+        "Description": "Monthly Contribution",
+        "Date": "2022-01-15",
+        "Time": "10:05 AM",
+        "Staff": "Jane Smith",
+        "Amount": 500.00
+    },
+    {
+        "#": 3,
+        "Description": "Monthly Contribution",
+        "Date": "2022-01-15",
+        "Time": "10:10 AM",
+        "Staff": "Michael Brown",
+        "Amount": 500.00
+    },
+    {
+        "#": 4,
+        "Description": "Monthly Contribution",
+        "Date": "2022-01-15",
+        "Time": "10:15 AM",
+        "Staff": "Emily Davis",
+        "Amount": 500.00
+    },
+    {
+        "#": 5,
+        "Description": "Monthly Contribution",
+        "Date": "2022-01-15",
+        "Time": "10:20 AM",
+        "Staff": "David Lee",
+        "Amount": 500.00
+    },
+    {
+        "#": 6,
+        "Description": "Monthly Contribution",
+        "Date": "2022-01-15",
+        "Time": "10:25 AM",
+        "Staff": "Sarah Taylor",
+        "Amount": 500.00
     }
-}
+]
+)
+
 </script>

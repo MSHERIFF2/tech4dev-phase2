@@ -4,12 +4,8 @@
     
  </template>
  
- <script>
+ <script setup>
  
  import ProfileComponent from '@/components/ProfileComponent.vue';
 
- export default {
-    name: 'Profile',
-    components: {  ProfileComponent }
- }
  </script>

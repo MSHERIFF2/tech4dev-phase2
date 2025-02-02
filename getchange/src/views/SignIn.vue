@@ -5,18 +5,8 @@
     
   
 </template>
-<script>
+<script setup>
 
 import Login from '@/components/Login.vue'
-export default{
-    name: 'SignIn',
-    data() {
-        return {
 
-        }
-    },
-    components: {
-        Login
-    }
-}
 </script>

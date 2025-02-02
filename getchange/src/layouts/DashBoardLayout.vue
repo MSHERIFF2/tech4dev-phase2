@@ -1,13 +1,13 @@
 <template>
     <div class="w-full h-full">
-       <DbTop/>
+        <DbTop />
         <div class="flex border justify-between">
             <div class="left bg-[#FFFFFF] w-15 p-3   flex flex-col gap-y-10  border">
-               <button v-for = "route in routes" @click = "goToRoute(route.route)" 
-               :class="activeRoute === route.route ? 'text-green-500' : 'text-gray-500' " class="p-3">
-                <component :is="route.icon"/>
+                <button v-for="route in routes" @click="goToRoute(route.route)"
+                    :class="activeRoute === route.route ? 'text-green-500' : 'text-gray-500'" class="p-3">
+                    <component :is="route.icon" />
 
-               </button>
+                </button>
 
             </div>
             <div class="w-full h-auto">
@@ -19,7 +19,8 @@
                         <p class="text-white mb-7">GETCHANGE WIDGET</p>
                         <div class="flex justify-between w-20 mt-4 gap-x-4 items-center">
                             <label class="text-[#FFFFFF80]">Amount</label>
-                            <input type="number" class=" bg-[#013C61]  w-64 text-[#FFFFFF6A] border-b-2 border-gray-400"/>
+                            <input type="number"
+                                class=" bg-[#013C61]  w-64 text-[#FFFFFF6A] border-b-2 border-gray-400" />
 
                         </div>
                         <div class="flex justify-around">
@@ -57,23 +58,23 @@
                             <div class="flex ">
                                 <div class="w-4/5 h-full flex flex-col justify-around gap-y-4 py-2">
                                     <div class="flex justify-around">
-                                       
+
                                         <div>1</div>
                                         <div>2</div>
                                         <div>3</div>
-                                        
+
                                     </div>
                                     <div class="flex justify-around">
                                         <div>4</div>
                                         <div>5</div>
                                         <div>6</div>
-                                        
+
                                     </div>
                                     <div class="flex justify-around">
                                         <div>7</div>
                                         <div>8</div>
                                         <div>9</div>
-                                        
+
                                     </div>
 
                                 </div>
@@ -97,82 +98,54 @@
         </div>
 
 </template>
-<script>
-import {HomeIcon, MyCardIcon, ContactIcon, CartIcon} from '@/components/Icons/Icon'
+<script setup>
+
+import { HomeIcon, MyCardIcon, ContactIcon, CartIcon } from '@/components/Icons/Icon'
 import DbTop from '@/components/DbTop.vue';
+import { ref, computed } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 
-export default {
-    name: "DashBoardLayout",
-    components: {HomeIcon, MyCardIcon, ContactIcon, DbTop, CartIcon},
-    data() {
-        return {
-            routes : [
-                {
-                    name: 'DashBoard',
-                    icon: 'HomeIcon',
-                    route: 'DashBoard'
-                },
-                {
-                    name: 'Cart',
-                    icon: "CartIcon",
-                    route: 'Cart'
-                },
-                {
-                    name: 'Profile',
-                    icon: 'ContactIcon',
-                    route: 'Profile'
-                },
-               
-               
-                {
-                    name: 'MyCard',
-                    icon: "MyCardIcon",
-                    route: 'MyCard'
-                },
-            ]
-        }
-    },
-    computed:{
-        activeRoute(){
- let activeRoute = 'DashBoard'
- switch (this.$route.name) {
-    case 'DashBoard':
-        activeRoute = 'DashBoard'
-        break;
-    case 'Profile':
-        activeRoute = 'Profile'
-        break;
-    case 'MyCard':
-        activeRoute = 'MyCard'
-        break;
-    case 'Cart':
-        activeRoute = 'Cart'
-        break;
+const routes = ref(
+    [
+        {
+            name: 'DashBoard',
+            icon: HomeIcon,
+            route: 'DashBoard'
+        },
+        {
+            name: 'Cart',
+            icon: CartIcon,
+            route: 'Cart'
+        },
+        {
+            name: 'Profile',
+            icon: ContactIcon,
+            route: 'Profile'
+        },
 
-   
-    default:
-        activeRoute = 'DashBoard'
-        
- }
- return activeRoute;
-        }
-        
-       
 
-    },
-    methods: {
-        goToRoute(name){
-            if (this.$route.name !== name){
-                this.$router.push({name: name})
-            } else
-            {
-                console.log("Already on the desire route")
-            }
-            
-        }
-        
+        {
+            name: 'MyCard',
+            icon: MyCardIcon,
+            route: 'MyCard'
+        },
+    ]
+
+)
+const route = useRoute();
+const router = useRouter();
+const activeRoute = computed(() => route.name)
+const goToRoute = (name) => {
+    
+    if (route.name !== name) {
+        router.push({ name })
+    } else {
+        console.log("Already on the desire route")
     }
 
 }
+
+
+
 
 </script>

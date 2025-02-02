@@ -11,7 +11,7 @@
             </div>
             <div class="flex justify-between items-center w-2/5">
                 <router-link to="/" class="bg-green-500 text-white text-center p-3 rounded-xl w-2/5">Log out</router-link>
-                <router-link to="/DashBoard" class="bg-green-500 text-white text-center p-3 rounded-xl w-2/5">Log in</router-link>
+                <router-link to="/app/DashBoard" class="bg-green-500 text-white text-center p-3 rounded-xl w-2/5">Log in</router-link>
             </div>
 
 

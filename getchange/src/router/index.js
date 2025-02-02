@@ -1,5 +1,5 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+
+import { createRouter, createWebHistory } from 'vue-router'
 import SignIn from '@/views/SignIn.vue'
 import DashBoard from '@/views/DashBoard.vue'
 import SignUp from '@/views/SignUp.vue'
@@ -10,7 +10,6 @@ import MyCard from '@/views/MyCard.vue'
 import Cart from '@/components/Cart.vue'
 
 
-Vue.use(VueRouter)
 
 const routes = [
   {
@@ -59,9 +58,8 @@ const routes = [
  
 ]
 
-const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
+const router = createRouter({
+  history: createWebHistory(),
   routes
 })
 

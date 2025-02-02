@@ -48,62 +48,58 @@
 
 
 </template>
-<script>
-export default {
-    data() {
-        return {
-            viewMode: 'list',
-            products: [],
-            Cart: [],
+<script setup>
+import {ref,  onMounted} from 'vue'
+
+            const viewMode = ref('list')
+            const products = ref([])
+            const Cart = ref([])
+   
+ 
+      const  gridMode = () => {
+            viewMode.value = 'grid'
         }
-    },
-    methods: {
-        gridMode() {
-            this.viewMode = 'grid'
-        },
-        listMode() {
-            this.viewMode = 'list'
-        },
-        addToCart(product){
-            const CartItem = this.Cart.find((item) => item.id === product.id)
+       const listMode = () => {
+            viewMode.value = 'list'
+        }
+       const addToCart = (product) => {
+            const CartItem = Cart.value.find((item) => item.id === product.id)
                 if (CartItem){
                     CartItem.quantity += 1
 
                 }
                 else{
-                    this.Cart.push({...product, quantity: 1})
+                    Cart.value.push({...product, quantity: 1})
                 }
-            },
-        removeOneFromCart(product){
-            const CartItem = this.Cart.find((item) => item.id === product.id)
+            }
+      const  removeOneFromCart = (product) =>{
+            const CartItem = Cart.value.find((item) => item.id === product.id)
                 if (CartItem){
                     if (CartItem.quantity > 0){
                         CartItem.quantity -= 1
                     } else if(CartItem.quantity === 0){
-                        this.removeFromCart()
+                        removeFromCart()
                     }
                     else{
-                        this.CartItem.splice(index, 1)
+                        CartItem.splice(index, 1)
 
                     }
                    
 
                 }
                 
-            },
-            removeFromCart(index){
-                this.Cart.splice(index, 1)
+            }
+          const  removeFromCart = (index) => {
+                Cart.value.splice(index, 1)
             }
           
         
-    },
-    mounted() {
+
+    onMounted (() => {
         fetch(`https://fakestoreapi.com/products/`)
             .then(res => res.json())
-            .then(data => this.products = data)
+            .then(data => products.value = data)
             .catch(error => console.error(error))
-    },
-
-}
+    })
 
 </script>

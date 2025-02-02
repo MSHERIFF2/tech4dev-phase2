@@ -1,20 +1,10 @@
 <template>
   
-    <Details/>
+    <userDetails/>
   
 </template>
-<script>
+<script setup>
 
-import Details from '@/components/Details.vue';
-export default{
-    name: 'SignUp',
-    data() {
-        return {
+import userDetails from '@/components/userDetails.vue';
 
-        }
-    },
-    components: {
-       Details
-    }
-}
 </script>

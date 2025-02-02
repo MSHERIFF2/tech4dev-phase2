@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class=" w-3/5 flex flex-col h-full p-3  m-auto relative">
-          
+
             <div class="mx-20 flex-grow  my-10">
                 <slot />
             </div>
@@ -34,40 +34,33 @@
         </div>
     </div>
 </template>
-<script>
+<script setup>
+import { ref, computed } from 'vue';
+
+const currentImage = ref('male.png')
+const images = ref(['male.png', 'female.png'])
+const intervalId = ref(null)
 
 
-export default {
-    name: 'OnboardLayout',
-    data() {
-        return {
-            currentImage: 'male.png',
-            images: ['male.png', 'female.png'],
-            intervalId: null
-        };
-    },
-    computed: {
-        currentImageSrc() {
-            return (require(`@/assets/images/${this.currentImage}`))
-        }
-    },
-    methods: {
-        setImageRotation() {
-            let currentIndex = this.images.indexOf(this.currentImage)
-            this.intervalId = setInterval(() => {
-                currentIndex = (currentIndex + 1) % this.images.length;
-                this.currentImage = this.images[currentIndex]
+const currentImageSrc = computed(() => `/images/${currentImage}`)
 
-            }, 5000);
-        }
-    },
-    mounted() {
-        this.setImageRotation()
-    },
-    beforeDestroy() {
-        if (this.intervalId) {
-            clearInterval(this.intervalId)
-        }
-    }
+
+const setImageRotation = () => {
+    let currentIndex = images.indexOf(currentImage)
+    intervalId = setInterval(() => {
+        currentIndex = (currentIndex + 1) % images.length;
+        currentImage = images[currentIndex]
+
+    }, 5000);
 }
+
+onMounted(() => {
+    setImageRotation();
+});
+
+onBeforeUnmount(() => {
+    if (intervalId) {
+        clearInterval(intervalId);
+    }
+});
 </script>
