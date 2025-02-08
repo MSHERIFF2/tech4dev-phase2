@@ -3,21 +3,19 @@
     <div>
       <h1 class="text-3xl text-gray-900">{{ msg.msg }}</h1>
     </div>
+<div class=" flex gap-4">
+  <ul  class="flex w-full mx-4  gap-4" v-for="navitem in msg.navbar">
+    <li class="flex  " >{{ navitem }} </li>
+    <MenuIcon class="mt-2"/>
 
-    <div class="w-2/5 flex justify-between p-6">
-      <ul v-for="navitem in msg.navbar" :key="navitem" class="flex  justify-center items-center">
-        <li class="text-xl text-gray-400 inline-flex w-full justify-center flex items-center">{{ navitem }}
-          <menuIcon  class="mt-2"/>
-        </li>
-        
-      </ul>
-      <HeaderModal class="hidden"/>
-    </div>
+  </ul>
+</div>
+   
     <div class="flex justify-arouund items-center text-black w-1/5 gap-x-4" >
-   <searchIcon/>
-   <userIcon/>
-   <heartIcon/>
-   <cartIcon/>
+   <SearchIcon/>
+   <UserIcon/>
+   <HeartIcon/>
+   <CartIcon/>
    
 
     </div>
