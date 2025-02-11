@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="flex flex-col">
    <Header/>
    <HeroSection/>
   </div>
