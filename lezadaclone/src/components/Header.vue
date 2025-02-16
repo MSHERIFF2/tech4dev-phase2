@@ -1,26 +1,35 @@
 <template>
-  <div class="text-center items-center p-12 flex justify-between w-full h-full ">
-    <div>
-      <h1 class="text-3xl text-gray-900">{{ msg.msg }}</h1>
+  <div class="  p-6 flex justify-between w-full h-full  z-20 ">
+    <div class=" w-1/5">
+      <h1 class="text-4xl text-center text-gray-900">{{ msg.msg }}</h1>
     </div>
+<<<<<<< HEAD
 <div class=" flex gap-4">
   <ul  class="flex w-full mx-4  gap-4" v-for="navitem in msg.navbar">
     <li @mouseover="showModal" @mouseleave="hideModal" class="flex hover:underline cursor-pointer " >{{ navitem }} </li>
     <MenuIcon class="mt-2"/>
+=======
+    <div class=" flex  w-2/5 justify-content">
+      <ul class="flex justify-evenly items-center w-full">
+        <li @mouseover="changeMenu" v-for="navitem in msg.navbar" class=" flex mx-1 cursor-pointer hover:underline">{{ navitem }} 
+          <MenuIcon class="mt-2" />
+        </li>
+       
 
-  </ul>
-</div>
-   
-    <div class="flex justify-arouund items-center text-black w-1/5 gap-x-4" >
-   <SearchIcon/>
-   <UserIcon/>
-   <HeartIcon/>
-   <CartIcon/>
-   
+      </ul>
+    </div>
+
+    <div class="flex justify-around items-center text-black w-1/5 gap-x-6">
+      <SearchIcon />
+      <UserIcon />
+      <HeartIcon />
+      <CartIcon />
+>>>>>>> 2aa80202d123f41ebf55e9c879abd7815ce366d8
+
 
     </div>
   </div>
-
+  <HeaderModal v-if="show" />
 
 </template>
 
@@ -32,8 +41,15 @@ import { defineEmits } from 'vue';
 const msg = ref({
   msg: 'LEZADA',
   navbar: ['Home', 'Shop', 'Elements', 'Pages', 'Blog'],
+  
 
 })
+const show = ref(false)
+
+const changeMenu = () => {
+  show.value = !show.value
+  
+}
 
 const emit = defineEmits(['customeEvent'])
 const showModal = () => {
