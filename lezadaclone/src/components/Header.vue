@@ -5,7 +5,7 @@
     </div>
 <div class=" flex gap-4">
   <ul  class="flex w-full mx-4  gap-4" v-for="navitem in msg.navbar">
-    <li class="flex  " >{{ navitem }} </li>
+    <li @mouseover="showModal" @mouseleave="hideModal" class="flex hover:underline cursor-pointer " >{{ navitem }} </li>
     <MenuIcon class="mt-2"/>
 
   </ul>
@@ -27,7 +27,7 @@
 <script setup>
 import { ref } from 'vue';
 import { SearchIcon, MenuIcon, HeartIcon, CartIcon, UserIcon } from '@/components/Icons/Icons'
-import HeaderModal from '@/components/HeaderModal.vue'
+import { defineEmits } from 'vue';
 
 const msg = ref({
   msg: 'LEZADA',
@@ -35,4 +35,11 @@ const msg = ref({
 
 })
 
+const emit = defineEmits(['customeEvent'])
+const showModal = () => {
+  emit('showModal')
+}
+const hideModal = () => {
+  emit('hideModal')
+}
 </script>

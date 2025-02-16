@@ -1,12 +1,12 @@
 <template>
   <div class="home">
-   <Header/>
-   <HeroSection/>
+ 
+   <Home/>
   </div>
 </template>
 
 <script setup>
-import Header from '@/components/Header.vue';
-import HeroSection from '@/components/HeroSection.vue';
+
+import Home from '@/components/Home.vue';
 
 </script>
