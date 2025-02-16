@@ -9,44 +9,69 @@
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
 </head>
 
-<body>
-    <h1 class="text-2xl text-center text-uppercase text-semibold">I use this page to practice alpine.js </h1>
-    <div x-data="{name: 'Sheriffdeen', subject: 'ICT'}" class="flex justify-content items-center gap-x-8 p-6">
-        <div class="w-2/5 rounded bg-green-400 p-6 text-white"> <label for="">Name:</label>
-            <p x-text="name"></P>
-        </div>
-        <div class="w-2/5 rounded bg-blue-400 p-6 text-white"><label for="">Subject:</label>
-            <p x-text="subject"></p>
-        </div>
+<body class="bg-blue-100 ">
+    <div class=" w-3/5 m-auto flex flex-col  justify-content mt-4 rounded shadow">
+        <h1 class="text-2xl text-center text-uppercase text-semibold">I use this page to practice alpine.js </h1>
+        <div x-data="{name: 'Sheriffdeen', subject: 'ICT'}" class=" w-full flex justify-content items-center gap-x-8 p-6">
+            <div class="w-2/5 rounded bg-green-400 p-6 text-white"> <label for="">Name:</label>
+                <p x-text="name"></P>
+            </div>
+            <div class="w-2/5 rounded bg-blue-400 p-6 text-white"><label for="">Subject:</label>
+                <p x-text="subject"></p>
+            </div>
 
 
-    </div>
-    <hr class="text-yellow bg-gray-900">
-    <div class="p-6 m-auto flex flex-col mt-4 mb-4">
-        <h1 class="text-3xl text-bold text-center Uppercase">let practice state and event litening skill</h1>
-        <div x-data="{count: 0}" class="flex flex-col gap-y-8">
-            <span x-text="count" class="text-center"></span>
-            <button @click="count++" class="bg-green-500 text-white p-4 rounded w-3/5 m-auto">increment</button>
-    
         </div>
+        <hr class="text-yellow bg-gray-900">
+        <div class="p-6 m-auto flex flex-col mt-4 mb-4">
+            <h1 class="text-3xl text-bold text-center Uppercase">let practice state and event litening skill</h1>
+            <div x-data="{count: 0}" class="flex flex-col gap-y-8">
+                <span x-text="count" class="text-center"></span>
+                <button @click="count++" class="bg-green-500 text-white p-4 rounded w-3/5 m-auto">increment</button>
+
+            </div>
         </div>
-    <hr class="text-yellow bg-gray-900">
-    <div class="p-6 m-auto flex flex-col mt-4">
-        <h1 class="text-3xl text-bold text-center Uppercase">LET BUILD A DROP DOWN</h1>
-        <div x-data="{open: false}" class="flex flex-col gap-y-8">
-            
-            <button @click="open = ! open" class="bg-green-500 text-white p-4 rounded w-3/5 m-auto">Our Menu</button>
-            <span x-show="open" class="text-center">
-                <ul class="flex gap-x-8">
-                    <li>Rice</li>
-                    <li>Beans</li>
-                    <li>Yam</li>
+        <hr class="text-yellow bg-gray-900">
+        <div class="p-6 m-auto flex flex-col mt-2">
+            <h1 class="text-3xl text-bold text-center Uppercase">LET BUILD A DROP DOWN</h1>
+            <div x-data="{open: false}" class="flex flex-col gap-y-8">
+
+                <button @click="open = ! open" class=" p-4  w-3/5 m-auto">Our Menu</button>
+                <span x-show="open" @click.outside="open = false" class="text-center">
+                    <ul class="flex gap-x-8">
+                        <li>Rice</li>
+                        <li>Beans</li>
+                        <li>Yam</li>
+                    </ul>
+                </span>
+            </div>
+        </div>
+        <hr class="text-yellow bg-gray-900">
+        <div class="p-6 m-auto flex flex-col mt-2">
+            <h1 class="text-3xl text-bold text-center Uppercase">LET BUILD A SEARCH INPUT</h1>
+            <div x-data="{
+                search: '',
+                items: ['Rice', 'Beans', 'Maize'],
+                get filteredItems(){
+                    return this.items.filter( i => i.startsWith(this.search))
+                }
+            }" class="flex flex-col">
+
+                <input  x-model="search" placeholder="Search..." class="p-6 w-full rounded text-2xl">
+                <ul>
+                    <template x-for="item in filteredItems" :key="item">
+                        <li x-text="item"></li>
+                    </template>
                 </ul>
-            </span>
+                
+            </div>
         </div>
-    
-    </body>
+
     </div>
-    
+
+
+</body>
+
+
 
 </html>
