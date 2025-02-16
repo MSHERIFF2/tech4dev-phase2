@@ -18,7 +18,7 @@
         </li>
       </ul>
     </div>
-    <div class="flex justify-around items-center text-black w-1/5 gap-x-6 border">
+    <div class="flex justify-around items-center text-black w-1/5 gap-x-6 ">
       <SearchIcon />
       <UserIcon />
       <HeartIcon />

@@ -6,7 +6,7 @@
         </div>
         <div class="p-16">
             <Transition name="slide">
-                <div class="z-50 fixed top-32 shadow shadow-xl bg-white w-['max-content'] transition  -transition-x-1/2" v-if="activeMenu">
+                <div class="z-50 fixed top-32 shadow shadow-xl bg-white w-[90%] transition  -transition-x-1/2" v-if="activeMenu">
                               <component :is="activeMenu"/>                  
                 </div>
             </Transition>
