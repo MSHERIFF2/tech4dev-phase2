@@ -1,9 +1,9 @@
 <template>
   <div class="  p-6 flex items-center justify-between w-full h-full  z-20 ">
-    <div class=" w-1/5 border">
+    <div class=" w-1/5">
       <h1 class="text-4xl text-center text-gray-900">{{ msg.msg }}</h1>
     </div>
-    <div class=" flex gap-4 border">
+    <div class=" flex gap-4 ">
       <ul class="flex w-full mx-4  gap-4" v-for="navitem in msg.navbar">
         <li @mouseover="showModal" @mouseleave="hideModal" class="flex hover:underline cursor-pointer ">{{ navitem }}
           <MenuIcon class="mt-2" />
