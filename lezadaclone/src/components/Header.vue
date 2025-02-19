@@ -21,9 +21,9 @@
     <div class="flex justify-around items-center text-black w-1/5 gap-x-6 ">
       <SearchIcon />
       <RouterLink to="/login">
-
+        <UserIcon />
       </RouterLink>
-      <UserIcon />
+    
       <HeartIcon />
       <CartIcon />
     </div>
