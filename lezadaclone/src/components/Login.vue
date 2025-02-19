@@ -12,23 +12,21 @@
 
 <script setup>
 import { authService } from '@/services/api';
-import {ref, computed} from 'vue'
-const data = ref({
-    email: "",
-    password: "",
-    error: null,
+import {ref} from 'vue'
+const email = ref("")
+const password = ref("")
+const error = ref(null)
 
-})
   const handleLogin = async () => {
     try{
         await authService.login({
-            email: data.email.value, 
-            password: data.password.value
+            email: email.value, 
+            password: password.value
         })
         $router.push("/dashboard")
 
     }catch (err){
-        data.error.value = "Invalid credentials"
+        error.value = "Invalid credentials"
     }
 };
 </script>

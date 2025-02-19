@@ -20,6 +20,9 @@
     </div>
     <div class="flex justify-around items-center text-black w-1/5 gap-x-6 ">
       <SearchIcon />
+      <RouterLink to="/login">
+
+      </RouterLink>
       <UserIcon />
       <HeartIcon />
       <CartIcon />
@@ -33,6 +36,7 @@
 import { ref } from 'vue';
 import { SearchIcon, MenuIcon, HeartIcon, CartIcon, UserIcon } from '@/components/Icons/Icons'
 import { defineEmits } from 'vue';
+import { RouterLink } from 'vue-router';
 
 const msg = ref({
   msg: 'LEZADA',
