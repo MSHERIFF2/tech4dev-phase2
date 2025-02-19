@@ -1,8 +1,8 @@
 <template>
     <div class="flex flex-col">
         <div>
-            <Header @showModal="showModal" @hideModal="hideModal" @showPageMenu="showPageMenu"
-                @hidePageMenu="hidePageMenu" @showBlogMenu="showBlogMenu" @hideBlogMenu="hideBlogMenu" />
+            <Header @showModal="showModal"  @showPageMenu="showPageMenu"
+                @showBlogMenu="showBlogMenu"  />
         </div>
         <div class="p-16">
             <Transition name="slide">
@@ -40,21 +40,21 @@ const activeMenu = computed(() => {
 const showModal = () =>{
     show.value = true
 }
-const hideModal = () =>{
-    show.value = false
-}
+// const hideModal = () =>{
+//     show.value = false
+// }
 const showPageMenu = () =>{
     pageMenu.value = true
 }
-const hidePageMenu = () =>{
-    pageMenu.value = false
-}
+// const hidePageMenu = () =>{
+//     pageMenu.value = false
+// }
 const showBlogMenu = () =>{
     blogMenu.value = true
 }
-const hideBlogMenu = () =>{
-    blogMenu.value = false
-}
+// const hideBlogMenu = () =>{
+//     blogMenu.value = false
+// }
 </script>
 <style scoped>
 .slide-enter-active,

@@ -5,15 +5,15 @@
     </div>
     <div class=" flex gap-4 ">
       <ul class="flex w-full mx-4  gap-4" v-for="navitem in msg.navbar">
-        <li @mouseover="showModal" @mouseleave="hideModal" class="flex hover:underline cursor-pointer ">{{ navitem }}
+        <li @mouseover="showModal"  class="flex hover:underline cursor-pointer ">{{ navitem }}
           <MenuIcon class="mt-2" />
         </li>
       </ul>
       <ul class="flex w-full mx-4  gap-4">
-        <li @mouseover="showPageMenu" @mouseleave="hidePageMenu" class="flex hover:underline cursor-pointer ">Pages
+        <li @mouseover="showPageMenu"  class="flex hover:underline cursor-pointer ">Pages
           <MenuIcon class="mt-2" />
         </li>
-        <li @mouseover="showBlogMenu" @mouseleave="hideBlogMenu" class="flex hover:underline cursor-pointer ">Blog
+        <li @mouseover="showBlogMenu"  class="flex hover:underline cursor-pointer ">Blog
           <MenuIcon class="mt-2" />
         </li>
       </ul>
@@ -49,19 +49,19 @@ const emit = defineEmits(['customeEvent'])
 const showModal = () => {
   emit('showModal')
 }
-const hideModal = () => {
-  emit('hideModal')
-}
+// const hideModal = () => {
+//   emit('hideModal')
+// }
 const showPageMenu = () => {
   emit('showPageMenu')
 }
-const hidePageMenu = () => {
-  emit('hidePageMenu')
-}
+// const hidePageMenu = () => {
+//   emit('hidePageMenu')
+// }
 const showBlogMenu = () => {
   emit('showBlogMenu')
 }
-const hideBlogMenu = () => {
-  emit('hideBlogMenu')
-}
+// const hideBlogMenu = () => {
+//   emit('hideBlogMenu')
+// }
 </script>

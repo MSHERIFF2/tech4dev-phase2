@@ -598,8 +598,8 @@
   .w-12 {
     width: calc(var(--spacing) * 12);
   }
-  .w-\[\'max-content\'\] {
-    width: 'max-content';
+  .w-\[30\%\] {
+    width: 30%;
   }
   .w-\[90\%\] {
     width: 90%;
