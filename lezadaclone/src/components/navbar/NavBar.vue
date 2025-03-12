@@ -7,10 +7,14 @@ const Shop= ref('Shop')
 const Element = ref('Elements')
 const Page = ref('Pages')
 const Blog = ref('Blog')
+const showMenu = ref('false')
 
-const emit = defineEmits(['showHomeMenu'])
+const emit = defineEmits(['showHomeMenu', 'hideHomeMenu'])
 const showHomeMenu = () => {
-emit('showHomeMenu')
+emit('showHomeMenu', showMenu.value=true)
+}
+const hideHomeMenu = () => {
+emit('hideHomeMenu', showMenu.value=false)
 }
 </script>
 
@@ -21,7 +25,7 @@ emit('showHomeMenu')
 </div>
 <div class="flex items-center gap-x-16 ">
     <div class="flex gap-x2 text-l font-semibold text-gray-400 justify-between  items-center">
-       <div class="hover:underline hover:text-gray-900 cursor-pointer" @mouseover="showHomeMenu">
+       <div class="hover:underline hover:text-gray-900 cursor-pointer" @mouseover="showHomeMenu" @mouseleave="hideHomeMenu">
         {{ Home }}
        </div> 
         <MenuIcon class=" text-xs text-gray-400 mt-2 mx-1"/>
