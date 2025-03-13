@@ -21,7 +21,7 @@ emit('hideHomeMenu', showMenu.value=false)
 <template>
 <div class="flex justify-between p-6 items-center">
 <div class="text-xl text-gray-600 font-bold font-serif">
-    <img :src="logo"/>
+ <RouterLink to="/"><img :src="logo"/></RouterLink>   
 </div>
 <div class="flex items-center gap-x-16 ">
     <div class="flex gap-x2 text-l font-semibold text-gray-400 justify-between  items-center">
@@ -60,8 +60,8 @@ emit('hideHomeMenu', showMenu.value=false)
    
 </div>
 <div class="flex justify-between  items-cener gap-x-6 ">
-    <SearchIcon class="cursor-pointer"/>
-    <UserIcon class="cursor-pointer"/>
+ <RouterLink to="/search"> <SearchIcon class="cursor-pointer"/></RouterLink>  
+   <RouterLink to="/login"><UserIcon class="cursor-pointer"/></RouterLink> 
     <HeartIcon class="cursor-pointer"/>
     <CartIcon class="cursor-pointer"/>
 </div>
