@@ -43,7 +43,7 @@ const fetchData = async () => {
                 <form class="flex flex-col gap-y-16 text-gray-600 p-8">
                     <input class="border-b  focus:outline-none focus:border-b-2 focus:border-gray-600 border-gray-400 focus:border-gray-600" type="text" placeholder="username or email">
                     <input class="border-b  focus:outline-none focus:border-b-2 focus:border-gray-600 border-gray-400 focus:border-gray-600" type="password" placeholder="password">
-                    <button class="uppercase bg-gray-900 p-2 text-white text-center w-32">Login</button>
+                    <button class="uppercase bg-gray-900 p-2 text-white text-center w-32 hover:bg-transparent hover:border-1 hover:text-black hover:border-black">Login</button>
                    <div class="gap-x-2 flex">
                     <input  type="checkbox" class="border">
                     <label>Remember me</label>
@@ -53,9 +53,21 @@ const fetchData = async () => {
                 </form> 
                 <a class="p-8" href="#">lost your password? </a>          
             </div>
-            <div>
+            <div class=" w-2/5">
                 <h2>Register</h2>
                 <p>If you don't have an account, register now!</p>
+                <form class="flex flex-col gap-y-6 text-gray-600 p-8">
+                    <label for="" class="text-xl font-bold">EMAIL ADDRESS <span class="text-red-500 text-xl">*</span></label>
+                    <input class="border-b  focus:outline-none 
+                    focus:border-b-2 focus:border-gray-600 border-gray-400 focus:border-gray-600" type="email" required>
+                    <label for="" class="text-xl font-bold">PASSWORD <span class="text-red-500 text-xl"> *</span></label>
+                    <input class="border-b  focus:outline-none focus:border-b-2 
+                    focus:border-gray-600 border-gray-400 focus:border-gray-600" type="password" required>
+                    <button class="uppercase bg-gray-900 p-2 text-white text-center 
+                    w-32 hover:bg-transparent hover:border-1 hover:text-black hover:border-black">Register</button>
+                                  
+                    
+                </form> 
             </div>
         </div>
     </div>
