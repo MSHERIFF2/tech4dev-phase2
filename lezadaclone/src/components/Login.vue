@@ -4,19 +4,41 @@ import {ref} from 'vue';
 import NavBar from './navbar/NavBar.vue';
 import breadCrumb from '@/assets/breadcrumb-bg-2.jpg'
 import LoginFooter from './LoginFooter.vue';
+import MenuLayout from './menuComponents/MenuLayout.vue';
+import axios from 'axios';
 
 
 
 
+const activeMenu = ref(null)
+const email = ref('')
+const name = ref('')
+const password2 = ref('')
+const errorMessage = ref('')
+const successMessage = ref('')
 
-const activeMenu = ref('null')
 
-
+const createUser = async () => {
+    try{
+        const response = await axios.post('http://134.209.223.106/api/register', {
+            email: email.value,
+            password: password2.value,
+            name : name.value
+        })
+       if (response.status === 201){
+        successMessage.value = "Account created successful!"
+        errorMessage.value = ''
+       }
+    }catch(error){
+        errorMessage.value = error.response?.data?.message || "error in account creation"
+        successMessage.value = ''
+    }
+}
 const toggleMenu = (menu) => {
     activeMenu.value = activeMenu.value === menu ? null : menu
 }
 
-import MenuLayout from './menuComponents/MenuLayout.vue';
+
 
 
 
@@ -30,9 +52,9 @@ import MenuLayout from './menuComponents/MenuLayout.vue';
         <Transition>
             <NavBar class="fixed w-screen bg-white " 
             @showShopMenu="toggleMenu('shop')" 
-            @hideShopMenu="toggleMenu('null')"
+            @hideShopMenu="toggleMenu(null)"
             @showHomeMenu="toggleMenu('home')"
-            @hideHomeMenu="toggleMenu('null')"
+            @hideHomeMenu="toggleMenu(null)"
             />
         </Transition>
         <MenuLayout v-if="activeMenu === 'shop'" class="w-[90.5%] z-50 absolute shadow bg-white text-gray-900 p-8 mt-22 ml-2 mr-2">
@@ -57,9 +79,14 @@ import MenuLayout from './menuComponents/MenuLayout.vue';
                 <h2 class="text-center font-bold text-2xl mt-4">Login</h2>
                 <p class="text-center mt-2 text-gray-400 font-semibold mt-4">Greate to have you back!</p> 
                 <form class="flex flex-col gap-y-16 text-gray-600 p-8">
-                    <input class="border-b  focus:outline-none focus:border-b-2 focus:border-gray-600 border-gray-400 focus:border-gray-600" type="text" placeholder="username or email">
-                    <input class="border-b  focus:outline-none focus:border-b-2 focus:border-gray-600 border-gray-400 focus:border-gray-600" type="password" placeholder="password">
-                    <button class="uppercase bg-gray-900 p-2 text-white text-center w-32 hover:bg-transparent hover:border-1 hover:text-black hover:border-black">Login</button>
+                    <input  class="border-b  focus:outline-none focus:border-b-2 
+                    focus:border-gray-600 border-gray-400 focus:border-gray-600" type="text" placeholder="username or email" required>
+                    <input  class="border-b  focus:outline-none focus:border-b-2 
+                    focus:border-gray-600 border-gray-400 focus:border-gray-600" type="password" placeholder="password" required>
+                    
+                    <button class="uppercase bg-gray-900 p-2 text-white 
+                    text-center w-32 hover:bg-transparent hover:border-1 
+                    hover:text-black hover:border-black" >Login</button>
                    <div class="gap-x-2 flex">
                     <input  type="checkbox" class="border">
                     <label>Remember me</label>
@@ -73,14 +100,19 @@ import MenuLayout from './menuComponents/MenuLayout.vue';
                 <h2 class="text-center font-semibold text-2xl mt-4">Register</h2>
                 <p class="text-center text-gray-400 font-semibold mt-4">If you don't have an account, register now!</p>
                 <form class="flex flex-col gap-y-6 text-gray-600 p-8">
+                    <label for="" class="text-xl font-bold">USERNAME <span class="text-red-500 text-xl">*</span></label>
+                    <input v-model="name" class="border-b  focus:outline-none 
+                    focus:border-b-2 focus:border-gray-600 border-gray-400 focus:border-gray-600" type="text" required>
                     <label for="" class="text-xl font-bold">EMAIL ADDRESS <span class="text-red-500 text-xl">*</span></label>
-                    <input class="border-b  focus:outline-none 
+                    <input v-model="email" class="border-b  focus:outline-none 
                     focus:border-b-2 focus:border-gray-600 border-gray-400 focus:border-gray-600" type="email" required>
                     <label for="" class="text-xl font-bold">PASSWORD <span class="text-red-500 text-xl"> *</span></label>
-                    <input class="border-b  focus:outline-none focus:border-b-2 
+                    <input v-model="password2" class="border-b  focus:outline-none focus:border-b-2 
                     focus:border-gray-600 border-gray-400 focus:border-gray-600" type="password" required>
-                    <button class="uppercase bg-gray-900 p-2 text-white text-center 
-                    w-32 hover:bg-transparent hover:border-1 hover:text-black hover:border-black">Register</button>
+                   <p v-if="successMessage">{{ successMessage }}</p>
+                   <p v-if="errorMessage">{{ errorMessage }}</p>
+                    <button type="submit" class="uppercase bg-gray-900 p-2 text-white text-center 
+                    w-32 hover:bg-transparent hover:border-1 hover:text-black hover:border-black" @click.prevent="createUser">Register</button>
                                   
                     
                 </form> 
