@@ -17,10 +17,15 @@ const hideHomeMenu = () => {
 import MenuLayout from './menuComponents/MenuLayout.vue';
 </script>
 <template>
- <NavBar  @showHomeMenu='showHomeMenu' @hideHomeMenu="hideHomeMenu" class="fixed z-100 w-screen bg-white" />
+ <NavBar  
+ @showHomeMenu='showHomeMenu' 
+ @hideHomeMenu="hideHomeMenu" 
+ @showShopMenu='showShopMenu' 
+ @hideShopMenu="hideShopMenu" 
+ class="fixed z-100 w-screen bg-white" />
     <div class="px-16 py-6 relative z-10">
         <MenuLayout v-if="showMenuLayout" class="w-[90.5%] z-50 absolute shadow bg-white text-gray-900 p-8 mt-22 ml-2 mr-2">
-        This is a menu layout
+        This is a Home menu layout
     </MenuLayout>
         <div :style="{backgroundImage:`url(${bgImage})`, backgroundSize: cover}" class="h-screen relative mt-22 p-16 flex flex-col justify-center gap-y-4">
             <h1 class="text-blue-400 font-bold mx-16 text-l tracking-widest">ACCESSORIES</h1>

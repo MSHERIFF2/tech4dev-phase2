@@ -1,23 +1,25 @@
 <script setup>
 import {ref} from 'vue';
-import apiClient from './api';
+
 import NavBar from './navbar/NavBar.vue';
 import breadCrumb from '@/assets/breadcrumb-bg-2.jpg'
 import LoginFooter from './LoginFooter.vue';
 
-const data = ref([])
-const errorMessage = ref('')
 
-const fetchData = async () => {
-    try{
-        const response = await apiClient.post('/login')
-        data.value = response.stringify(data)
 
-    }catch (error) {
-        errorMessage.value = "The end point does not exist"
 
-    }
+
+const activeMenu = ref('null')
+
+
+const toggleMenu = (menu) => {
+    activeMenu.value = activeMenu.value === menu ? null : menu
 }
+
+import MenuLayout from './menuComponents/MenuLayout.vue';
+
+
+
 
 
 
@@ -26,9 +28,19 @@ const fetchData = async () => {
 <template>
     <div >
         <Transition>
-            <NavBar class="fixed w-screen bg-white "/>
+            <NavBar class="fixed w-screen bg-white " 
+            @showShopMenu="toggleMenu('shop')" 
+            @hideShopMenu="toggleMenu('null')"
+            @showHomeMenu="toggleMenu('home')"
+            @hideHomeMenu="toggleMenu('null')"
+            />
         </Transition>
-        
+        <MenuLayout v-if="activeMenu === 'shop'" class="w-[90.5%] z-50 absolute shadow bg-white text-gray-900 p-8 mt-22 ml-2 mr-2">
+        This is a shop menu layout
+    </MenuLayout>
+        <MenuLayout v-if="activeMenu === 'home'" class="w-[90.5%] z-50 absolute shadow bg-white text-gray-900 p-8 mt-22 ml-2 mr-2">
+        This is a Home menu layout
+    </MenuLayout>
         <div :style="{backgroundImage: `url(${breadCrumb})`}" class="w-screen bg-auto p-20 gap-y-8">
             <h1 class="text-6xl font-bold text-[#333] ml-8">
                 Customer Login

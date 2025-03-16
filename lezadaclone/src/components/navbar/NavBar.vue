@@ -9,12 +9,20 @@ const Page = ref('Pages')
 const Blog = ref('Blog')
 const showMenu = ref('false')
 
-const emit = defineEmits(['showHomeMenu', 'hideHomeMenu'])
+const emit = defineEmits(['showHomeMenu', 'hideHomeMenu', 'showShopMenu', 'hideShopMenu'])
+// home menu
 const showHomeMenu = () => {
 emit('showHomeMenu', showMenu.value=true)
 }
 const hideHomeMenu = () => {
 emit('hideHomeMenu', showMenu.value=false)
+}
+// shopMenu
+const showShopMenu = () => {
+emit('showShopMenu', showMenu.value=true)
+}
+const hideShopMenu = () => {
+emit('hideShopMenu', showMenu.value=false)
 }
 </script>
 
@@ -31,25 +39,25 @@ emit('hideHomeMenu', showMenu.value=false)
         <MenuIcon class=" text-xs text-gray-400 mt-2 mx-1"/>
     </div>
     <div class="flex gap-x2 text-l font-semibold text-gray-400 justify-between  items-center">
-        <div class="hover:underline hover:text-gray-900 cursor-pointer">
+        <div class="hover:underline hover:text-gray-900 cursor-pointer"  @mouseover="showShopMenu" @mouseleave="hideShopMenu">
         {{ Shop }}
         </div>
         <MenuIcon class=" text-xs text-gray-400 mt-2 mx-1"/>
     </div>
     <div class="flex gap-x2 text-l font-semibold text-gray-400 justify-between  items-center">
-        <div class="hover:underline hover:text-gray-900 cursor-pointer">
+        <div class="hover:underline hover:text-gray-900 cursor-pointer"  @mouseover="showHomeMenu" @mouseleave="hideHomeMenu">
         {{ Element }}
         </div>
         <MenuIcon class=" text-xs text-gray-400 mt-2 mx-1"/>
     </div>
     <div class="flex gap-x2 text-l font-semibold text-gray-400 justify-between  items-center">
-        <div class="hover:underline hover:text-gray-900 cursor-pointer">
+        <div class="hover:underline hover:text-gray-900 cursor-pointer"  @mouseover="showHomeMenu" @mouseleave="hideHomeMenu">
         {{ Page }}
         </div>
         <MenuIcon class=" text-xs text-gray-400 mt-2 mx-1"/>
     </div>
     <div class="flex gap-x2 text-l font-semibold text-gray-400 justify-between  items-center">
-        <div class="hover:underline hover:text-gray-900 cursor-pointer">
+        <div class="hover:underline hover:text-gray-900 cursor-pointer"  @mouseover="showHomeMenu" @mouseleave="hideHomeMenu">
         {{ Blog }}
         </div>
         <MenuIcon class=" text-xs text-gray-400 mt-2 mx-1"/>
