@@ -12,44 +12,49 @@ import {useRouter} from 'vue-router'
 
 const router = useRouter()
 const activeMenu = ref(null)
-const email = ref('')
-const name = ref('')
-const password = ref('')
-const errorMessage = ref('')
-const successMessage = ref('')
+const cEmail = ref('')
+const cName = ref('')
+const cPassword = ref('')
+const cErrorMessage = ref('')
+const cSuccessMessage = ref('')
+const lEmail = ref('')
+const lName = ref('')
+const lPassword = ref('')
+const lErrorMessage = ref('')
+const lSuccessMessage = ref('')
 
 
 const createUser = async () => {
     try{
         const response = await axios.post('http://134.209.223.106/api/register', {
-            email: email.value,
-            password: password.value,
-            name : name.value
+            email: cEmail.value,
+            password: cPassword.value,
+            name : cName.value
         })
        if (response.status === 201){
-        successMessage.value = "Account created successful!"
-        errorMessage.value = ''
+        cSuccessMessage.value = "Account created successful!"
+        cErrorMessage.value = ''
        }
     }catch(error){
-        errorMessage.value = error.response?.data?.message || "error in account creation"
-        successMessage.value = ''
+        cErrorMessage.value = error.response?.data?.message || "error in account creation"
+        CSuccessMessage.value = ''
     }
 }
 const login = async () => {
     try{
         const response = await axios.post('http://134.209.223.106/api/login', {
-            email: email.value,
-            password: password.value
+            email: lEmail.value,
+            password: lPassword.value
         })
        if (response.status === 201){
-        successMessage.value = "Account login successful!"
-        errorMessage.value = ''
+        lSuccessMessage.value = "Account login successful!"
+        lErrorMessage.value = ''
        }
        localStorage.setItem("token", response.data.token)
        router.push('/dashboard')
     }catch(error){
-        errorMessage.value = error.response?.data?.message || "error in account login"
-        successMessage.value = ''
+        lErrorMessage.value = error.response?.data?.message || "error in account login"
+        lSuccessMessage.value = ''
     }
 }
 const toggleMenu = (menu) => {
@@ -97,12 +102,12 @@ const toggleMenu = (menu) => {
                 <h2 class="text-center font-bold text-2xl mt-4">Login</h2>
                 <p class="text-center mt-2 text-gray-400 font-semibold mt-4">Greate to have you back!</p> 
                 <form @submit.prevent ="login" class="flex flex-col gap-y-16 text-gray-600 p-8">
-                    <input v-model="email" class="border-b  focus:outline-none focus:border-b-2 
+                    <input v-model="lEmail" class="border-b  focus:outline-none focus:border-b-2 
                     focus:border-gray-600 border-gray-400 focus:border-gray-600" type="text" placeholder="username or email" required>
-                    <input v-model = "password"  class="border-b  focus:outline-none focus:border-b-2 
+                    <input v-model = "lPassword"  class="border-b  focus:outline-none focus:border-b-2 
                     focus:border-gray-600 border-gray-400 focus:border-gray-600" type="password" placeholder="password" required>
-                    <p v-if="errorMessage">{{ errorMessage }}</p>
-                    <p v-if="successMessage">{{ successMessage }}</p>
+                    <p v-if="lErrorMessage">{{ lErrorMessage }}</p>
+                    <p v-if="lSuccessMessage">{{ lSuccessMessage }}</p>
                     <button class="uppercase bg-gray-900 p-2 text-white 
                     text-center w-32 hover:bg-transparent hover:border-1 
                     hover:text-black hover:border-black" type="submit">Login</button>
@@ -120,16 +125,16 @@ const toggleMenu = (menu) => {
                 <p class="text-center text-gray-400 font-semibold mt-4">If you don't have an account, register now!</p>
                 <form @submit.prevent = "createUser" class="flex flex-col gap-y-6 text-gray-600 p-8">
                     <label for="" class="text-xl font-bold">USERNAME <span class="text-red-500 text-xl">*</span></label>
-                    <input v-model="name" class="border-b  focus:outline-none 
+                    <input v-model="cName" class="border-b  focus:outline-none 
                     focus:border-b-2 focus:border-gray-600 border-gray-400 focus:border-gray-600" type="text" required>
                     <label for="" class="text-xl font-bold">EMAIL ADDRESS <span class="text-red-500 text-xl">*</span></label>
-                    <input v-model="email" class="border-b  focus:outline-none 
+                    <input v-model="cEmail" class="border-b  focus:outline-none 
                     focus:border-b-2 focus:border-gray-600 border-gray-400 focus:border-gray-600" type="email" required>
                     <label for="" class="text-xl font-bold">PASSWORD <span class="text-red-500 text-xl"> *</span></label>
-                    <input v-model="password" class="border-b  focus:outline-none focus:border-b-2 
+                    <input v-model="cPassword" class="border-b  focus:outline-none focus:border-b-2 
                     focus:border-gray-600 border-gray-400 focus:border-gray-600" type="password" required>
-                   <p v-if="successMessage">{{ successMessage }}</p>
-                   <p v-if="errorMessage">{{ errorMessage }}</p>
+                   <p v-if="cSuccessMessage">{{ cSuccessMessage }}</p>
+                   <p v-if="cErrorMessage">{{ cErrorMessage }}</p>
                     <button type="submit" class="uppercase bg-gray-900 p-2 text-white text-center 
                     w-32 hover:bg-transparent hover:border-1 hover:text-black hover:border-black" >Register</button>
                                   
