@@ -3,6 +3,7 @@ import bgImage from '@/assets/hero.jpg'
 import {ref} from 'vue'
 import NavBar from './navbar/NavBar.vue';
 import HeroSectionFooter from './HeroSectionFooter.vue';
+import Products from './Products.vue';
 
 
 const showMenuLayout = ref(false)
@@ -15,6 +16,7 @@ const hideHomeMenu = () => {
 }
 
 import MenuLayout from './menuComponents/MenuLayout.vue';
+
 </script>
 <template>
  <NavBar  
@@ -39,7 +41,9 @@ import MenuLayout from './menuComponents/MenuLayout.vue';
         <RouterLink to="#" class="text-6xl text-gray-200 hover:text-black font-light">Popular</RouterLink>
         <RouterLink to="#" class="text-6xl text-gray-200 hover:text-black font-light">Sale</RouterLink>
        </div>
-        
+        <div>
+            <Products />
+        </div>
     </div>
    <HeroSectionFooter/>
 </template>

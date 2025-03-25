@@ -16,7 +16,7 @@ const cEmail = ref('')
 const cName = ref('')
 const cPassword = ref('')
 const cErrorMessage = ref('')
-const cSuccessMessage = ref('')
+const CSuccessMessage = ref('')
 const lEmail = ref('')
 const lName = ref('')
 const lPassword = ref('')
@@ -50,7 +50,9 @@ const login = async () => {
         lSuccessMessage.value = "Account login successful!"
         lErrorMessage.value = ''
        }
-       localStorage.setItem("token", response.data.token)
+    //    console.log(response.data)
+       localStorage.setItem("token", response.data.data.token)
+     
        router.push('/dashboard')
     }catch(error){
         lErrorMessage.value = error.response?.data?.message || "error in account login"

@@ -3,7 +3,7 @@ import logo from '@/assets/lezadaLogo.png'
 import axios from 'axios';
 import { onMounted, ref } from 'vue';
 
-const user = ref(null)
+const userProfile = ref('')
 const errorMessage = ref('')
 onMounted(
     async () => {
@@ -20,7 +20,8 @@ onMounted(
            
         });
        
-        user.value = response.data;
+        userProfile.value = response.data.data;
+      
     }catch (error) {
         errorMessage.value = error.response?.data?.message || "An error occur"
     }
@@ -28,12 +29,13 @@ onMounted(
 ) 
 </script>
 <template>
-    <div class="flex gap-x-64  h-123">
+    <div class="flex gap-x-64  h-123 p-6">
         <div class="text-xl text-gray-600 font-bold font-serif">
                     <RouterLink to="/login"><img :src="logo"/></RouterLink>   
         </div>
-        <div class=" font-bold" v-if="user">
-        <h1>Welcome back {{user?.name}}</h1>
+        <div class=" font-bold" v-if="userProfile">
+        <h1 class="text-bold uppercase text-3xl">Welcome back {{userProfile.user.name}}</h1>
+        <p>user ID: {{ userProfile.user.id }}</p>
         <p v-if="errorMessage">{{ errorMessage }}</p>
         </div>
     </div>
