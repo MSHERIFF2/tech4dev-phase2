@@ -4,15 +4,27 @@ import {ref} from 'vue'
 import NavBar from './navbar/NavBar.vue';
 import HeroSectionFooter from './HeroSectionFooter.vue';
 import Products from './Products.vue';
+import HomeMenu from './menuComponents/HomeMenu.vue';
+import ShopMenu from './menuComponents/ShopMenu.vue';
+import PageMenu from './menuComponents/PageMenu.vue';
+import ElementMenu from './menuComponents/ElementMenu.vue';
+import BlogMenu from './menuComponents/BlogMenu.vue';
 
 
-const showMenuLayout = ref(false)
+const showHomeMenuLayout = ref(false)
+const showShopMenuLayout = ref(false)
 
 const showHomeMenu = () => {
-    showMenuLayout.value = true
+    showHomeMenuLayout.value = true
 }
 const hideHomeMenu = () => {
-    showMenuLayout.value = false
+    showHomeMenuLayout.value = false
+}
+const showShopMenu = () => {
+    showShopMenuLayout.value = true
+}
+const hideShopMenu = () => {
+    showShopMenuLayout.value = false
 }
 
 import MenuLayout from './menuComponents/MenuLayout.vue';
@@ -26,8 +38,11 @@ import MenuLayout from './menuComponents/MenuLayout.vue';
  @hideShopMenu="hideShopMenu" 
  class="fixed z-100 w-screen bg-white" />
     <div class="px-16 py-6 relative z-10">
-        <MenuLayout v-if="showMenuLayout" class="w-[90.5%] z-50 absolute shadow bg-white text-gray-900 p-8 mt-22 ml-2 mr-2">
-        This is a Home menu layout
+    <MenuLayout v-if="showHomeMenuLayout" class="w-[90.5%] z-50 absolute shadow bg-white text-gray-900 p-8 mt-22 ml-2 mr-2">
+      <HomeMenu/>
+    </MenuLayout>
+    <MenuLayout v-if="showShopMenuLayout" class="w-[90.5%] z-50 absolute shadow bg-white text-gray-900 p-8 mt-22 ml-2 mr-2">
+        <ShopMenu/>
     </MenuLayout>
         <div :style="{backgroundImage:`url(${bgImage})`, backgroundSize: cover}" class="h-screen relative mt-22 p-16 flex flex-col justify-center gap-y-4">
             <h1 class="text-blue-400 font-bold mx-16 text-l tracking-widest">ACCESSORIES</h1>

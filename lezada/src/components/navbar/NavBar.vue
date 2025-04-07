@@ -9,7 +9,14 @@ const Page = ref('Pages')
 const Blog = ref('Blog')
 const showMenu = ref('false')
 
-const emit = defineEmits(['showHomeMenu', 'hideHomeMenu', 'showShopMenu', 'hideShopMenu'])
+const emit = defineEmits([
+    'showHomeMenu', 'hideHomeMenu', 
+    'showShopMenu', 'hideShopMenu', 
+    'showElementMenu', 'hideElementMenu',
+    'showPageMeu', 'hidePageMenu',
+    'showBlogMenu', 'hideBlogMenu',
+
+])
 // home menu
 const showHomeMenu = () => {
 emit('showHomeMenu', showMenu.value=true)
@@ -33,31 +40,31 @@ emit('hideShopMenu', showMenu.value=false)
 </div>
 <div class="flex items-center gap-x-16 ">
     <div class="flex gap-x2 text-l font-semibold text-gray-400 justify-between  items-center">
-       <div class="hover:underline hover:text-gray-900 cursor-pointer" @mouseover="showHomeMenu" @mouseleave="hideHomeMenu">
+       <div class="hover:underline hover:text-gray-900 cursor-pointer" @mouseenter="showHomeMenu" @click="hideHomeMenu">
         {{ Home }}
        </div> 
         <MenuIcon class=" text-xs text-gray-400 mt-2 mx-1"/>
     </div>
     <div class="flex gap-x2 text-l font-semibold text-gray-400 justify-between  items-center">
-        <div class="hover:underline hover:text-gray-900 cursor-pointer"  @mouseover="showShopMenu" @mouseleave="hideShopMenu">
+        <div class="hover:underline hover:text-gray-900 cursor-pointer"  @mouseenter="showShopMenu" @mouseleave="hideShopMenu">
         {{ Shop }}
         </div>
         <MenuIcon class=" text-xs text-gray-400 mt-2 mx-1"/>
     </div>
     <div class="flex gap-x2 text-l font-semibold text-gray-400 justify-between  items-center">
-        <div class="hover:underline hover:text-gray-900 cursor-pointer"  @mouseover="showHomeMenu" @mouseleave="hideHomeMenu">
+        <div class="hover:underline hover:text-gray-900 cursor-pointer"  @mouseenter="showElementMenu" @mouseleave="hideElementMenu">
         {{ Element }}
         </div>
         <MenuIcon class=" text-xs text-gray-400 mt-2 mx-1"/>
     </div>
     <div class="flex gap-x2 text-l font-semibold text-gray-400 justify-between  items-center">
-        <div class="hover:underline hover:text-gray-900 cursor-pointer"  @mouseover="showHomeMenu" @mouseleave="hideHomeMenu">
+        <div class="hover:underline hover:text-gray-900 cursor-pointer"  @mouseenter="showPageMenu" @mouseleave="hidePageMenu">
         {{ Page }}
         </div>
         <MenuIcon class=" text-xs text-gray-400 mt-2 mx-1"/>
     </div>
     <div class="flex gap-x2 text-l font-semibold text-gray-400 justify-between  items-center">
-        <div class="hover:underline hover:text-gray-900 cursor-pointer"  @mouseover="showHomeMenu" @mouseleave="hideHomeMenu">
+        <div class="hover:underline hover:text-gray-900 cursor-pointer"  @mouseenter="showBlogMenu" @mouseleave="hideBlogMenu">
         {{ Blog }}
         </div>
         <MenuIcon class=" text-xs text-gray-400 mt-2 mx-1"/>
