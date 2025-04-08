@@ -1,47 +1,34 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <div class="p-6 gap-y-4 h-screen  flex flex-col">
+    <!-- Header section -->
+<div class=" bg-green-900 p-6 flex gap-x-34">
+  <span class="text-orange-300 text-xl font-bold">CODESH</span> 
+  <h1 class="m-auto flex text-orange-300 text-xl font-semibold">To-do-App</h1>
+</div>
+<!-- task list -->
+ <div class="flex gap-x-8 justify-end mx-64">
+  <button class="bg-green-300 font-semibold rounded p-3 w-1/5">All</button>
+  <button class="bg-green-300 font-semibold rounded p-3">favorite</button>
+ </div>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
+ <!-- task count -->
+  <div class="text-start mx-64 text-xl font-bold">
+    <p>There are {{ task.favCount + 1 }} task</p>
+  </div>
+<!-- task Section -->
+ <div class=" flex flex-col ">
 
-  <main>
-    <TheWelcome />
-  </main>
+ <TaskDetails  v-for="task in task.tasks" :key="task.id" :task="task.title"  class=" mx-auto mt-6 m w-3/5 flex  p-3 rounded bg-orange-200"/> 
+
+  </div>
+  </div>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-}
+<script setup>
+import TaskDetails from './components/TaskDetails.vue';
+import useTaskStore from './stores/TaskStore';
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
+const task = useTaskStore()
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+</script>
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
