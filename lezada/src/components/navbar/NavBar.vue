@@ -1,84 +1,73 @@
 <script setup>
-import {ref} from 'vue'
+import { ref } from 'vue'
 import logo from '@/assets/lezadaLogo.png'
 import { SearchIcon, UserIcon, HeartIcon, CartIcon, MenuIcon } from '../Icons/Icons'
-const Home = ref('Home')
-const Shop= ref('Shop')
-const Element = ref('Elements')
-const Page = ref('Pages')
-const Blog = ref('Blog')
-const showMenu = ref('false')
 
 const emit = defineEmits([
-    'showHomeMenu', 'hideHomeMenu', 
-    'showShopMenu', 'hideShopMenu', 
-    'showElementMenu', 'hideElementMenu',
-    'showPageMeu', 'hidePageMenu',
-    'showBlogMenu', 'hideBlogMenu',
-
+    'showMenu'
 ])
 // home menu
-const showHomeMenu = () => {
-emit('showHomeMenu', showMenu.value=true)
-}
-const hideHomeMenu = () => {
-emit('hideHomeMenu', showMenu.value=false)
+const showMenu = (menu) => {
+    emit('showMenu', menu)
 }
 // shopMenu
-const showShopMenu = () => {
-emit('showShopMenu', showMenu.value=true)
-}
-const hideShopMenu = () => {
-emit('hideShopMenu', showMenu.value=false)
-}
 </script>
 
 <template>
-<div class="flex justify-between p-6 items-center">
-<div class="text-xl text-gray-600 font-bold font-serif">
- <RouterLink to="/"><img :src="logo"/></RouterLink>   
-</div>
-<div class="flex items-center gap-x-16 ">
-    <div class="flex gap-x2 text-l font-semibold text-gray-400 justify-between  items-center">
-       <div class="hover:underline hover:text-gray-900 cursor-pointer" @mouseenter="showHomeMenu" @click="hideHomeMenu">
-        {{ Home }}
-       </div> 
-        <MenuIcon class=" text-xs text-gray-400 mt-2 mx-1"/>
-    </div>
-    <div class="flex gap-x2 text-l font-semibold text-gray-400 justify-between  items-center">
-        <div class="hover:underline hover:text-gray-900 cursor-pointer"  @mouseenter="showShopMenu" @mouseleave="hideShopMenu">
-        {{ Shop }}
+    <div class="flex items-center justify-between p-6">
+        <div class="font-serif text-xl font-bold text-gray-600">
+            <RouterLink to="/"><img :src="logo" /></RouterLink>
         </div>
-        <MenuIcon class=" text-xs text-gray-400 mt-2 mx-1"/>
-    </div>
-    <div class="flex gap-x2 text-l font-semibold text-gray-400 justify-between  items-center">
-        <div class="hover:underline hover:text-gray-900 cursor-pointer"  @mouseenter="showElementMenu" @mouseleave="hideElementMenu">
-        {{ Element }}
+        <div class="flex items-center gap-x-16 ">
+            <div class="flex items-center justify-between font-semibold text-gray-400 gap-x2 text-l">
+                <div class="cursor-pointer hover:underline hover:text-gray-900" @mouseenter="showMenu('home')"
+                    >
+                    Home
+                </div>
+                <MenuIcon class="mx-1 mt-2 text-xs text-gray-400 " />
+            </div>
+            <div class="flex items-center justify-between font-semibold text-gray-400 gap-x2 text-l">
+                <div class="cursor-pointer hover:underline hover:text-gray-900" @mouseenter="showMenu('shop')"
+                    @mouseleave="showMenu(null)">
+                    Shop
+                </div>
+                <MenuIcon class="mx-1 mt-2 text-xs text-gray-400 " />
+            </div>
+            <div class="flex items-center justify-between font-semibold text-gray-400 gap-x2 text-l">
+                <div class="cursor-pointer hover:underline hover:text-gray-900" @mouseenter="showMenu('element')"
+                    @mouseleave="showMenu(null)">
+                    Element
+                </div>
+                <MenuIcon class="mx-1 mt-2 text-xs text-gray-400 " />
+            </div>
+            <div class="flex items-center justify-between font-semibold text-gray-400 gap-x2 text-l">
+                <div class="cursor-pointer hover:underline hover:text-gray-900" @mouseenter="showMenu('page')"
+                    @mouseleave="showMenu(null)">
+                    Page
+                </div>
+                <MenuIcon class="mx-1 mt-2 text-xs text-gray-400 " />
+            </div>
+            <div class="flex items-center justify-between font-semibold text-gray-400 gap-x2 text-l">
+                <div class="cursor-pointer hover:underline hover:text-gray-900" @mouseenter="showMenu('blog')"
+                    @mouseleave="showMenu(null)">
+                    Blog
+                </div>
+                <MenuIcon class="mx-1 mt-2 text-xs text-gray-400 " />
+            </div>
+
+
+
+
         </div>
-        <MenuIcon class=" text-xs text-gray-400 mt-2 mx-1"/>
-    </div>
-    <div class="flex gap-x2 text-l font-semibold text-gray-400 justify-between  items-center">
-        <div class="hover:underline hover:text-gray-900 cursor-pointer"  @mouseenter="showPageMenu" @mouseleave="hidePageMenu">
-        {{ Page }}
+        <div class="flex justify-between items-cener gap-x-6 ">
+            <RouterLink to="/search">
+                <SearchIcon class="cursor-pointer" />
+            </RouterLink>
+            <RouterLink to="/login">
+                <UserIcon class="cursor-pointer" />
+            </RouterLink>
+            <HeartIcon class="cursor-pointer" />
+            <CartIcon class="cursor-pointer" />
         </div>
-        <MenuIcon class=" text-xs text-gray-400 mt-2 mx-1"/>
     </div>
-    <div class="flex gap-x2 text-l font-semibold text-gray-400 justify-between  items-center">
-        <div class="hover:underline hover:text-gray-900 cursor-pointer"  @mouseenter="showBlogMenu" @mouseleave="hideBlogMenu">
-        {{ Blog }}
-        </div>
-        <MenuIcon class=" text-xs text-gray-400 mt-2 mx-1"/>
-    </div>
-   
-    
-   
-   
-</div>
-<div class="flex justify-between  items-cener gap-x-6 ">
- <RouterLink to="/search"> <SearchIcon class="cursor-pointer"/></RouterLink>  
-   <RouterLink to="/login"><UserIcon class="cursor-pointer"/></RouterLink> 
-    <HeartIcon class="cursor-pointer"/>
-    <CartIcon class="cursor-pointer"/>
-</div>
-</div>
 </template>

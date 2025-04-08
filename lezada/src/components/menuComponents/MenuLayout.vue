@@ -1,8 +1,5 @@
-<script setup>
-</script>
-
 <template>
-    <div >
-        <slot/>
+    <div class="">
+        <slot />
     </div>
 </template>
