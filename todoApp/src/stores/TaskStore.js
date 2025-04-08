@@ -16,6 +16,11 @@ const useTaskStore = defineStore('taskStore', {
      return task.isFav ? count + 1 : count
     }, 0)
   },
+  actions: {
+    add : (task) => {
+     return this.tasks.push(task)
+    }
+  }
  
 })
 

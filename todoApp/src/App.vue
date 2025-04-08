@@ -5,6 +5,9 @@
   <span class="text-orange-300 text-xl font-bold">CODESH</span> 
   <h1 class="m-auto flex text-orange-300 text-xl font-semibold">To-do-App</h1>
 </div>
+<div>
+  <AddForm />
+</div>
 <!-- task list -->
  <div class="flex gap-x-8 justify-end mx-64">
   <button class="bg-green-300 font-semibold rounded p-3 w-1/5">All</button>
@@ -27,6 +30,7 @@
 <script setup>
 import TaskDetails from './components/TaskDetails.vue';
 import useTaskStore from './stores/TaskStore';
+import AddForm from './components/AddForm.vue';
 
 const task = useTaskStore()
 
