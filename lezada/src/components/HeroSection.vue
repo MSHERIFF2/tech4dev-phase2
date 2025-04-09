@@ -46,10 +46,11 @@ const showMenu = (menu) => {
             <RouterLink to="#" class="text-6xl font-light text-gray-200 hover:text-black">Popular</RouterLink>
             <RouterLink to="#" class="text-6xl font-light text-gray-200 hover:text-black">Sale</RouterLink>
         </div>
-        <div>
+        <div class="flex flex-wrap gap-x-8 justify-space  rounded border p-3">
             <Products />
         </div>
     </div>
+    
     <HeroSectionFooter />
 </template>
 

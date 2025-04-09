@@ -1,43 +1,46 @@
 <script setup>
 import axios from 'axios';
-import {ref, onMounted} from 'vue'
+import { ref, onMounted } from 'vue'
 
 const products = ref([])
 const errorMessage = ref('')
 
-onMounted( 
+onMounted(
     async () => {
-        const token =localStorage.getItem("token")
+        const token = localStorage.getItem("token")
         if (!token) {
-           console.warn("no token found");
+            console.warn("no token found");
             return;
         }
-    try{
-        const response = await axios.get('http://134.209.223.106/api/products?page=1', {
-            headers: {
-                Authorization: `Bearer ${token}`
-            },
-           
-        });
-      
-        if (response.data.status === 'success'){
-            products.value = response.data.data.data;
+        try {
+            const response = await axios.get('http://134.209.223.106/api/products?page=1', {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                },
+
+            });
+
+            if (response.data.status === 'success') {
+                products.value = response.data.data.data;
+            }
+
+
+
+        } catch (error) {
+            errorMessage.value = error.response?.data?.message || "An error occur"
         }
-       
-      
-      
-    }catch (error) {
-        errorMessage.value = error.response?.data?.message || "An error occur"
     }
-}
 )
 
 </script>
 
 <template>
-    <div v-for="product in products" :key="product.id">
-        <img :src="product.image" alt="">
-      
-        {{ product.stock}}
-    </div>
+    
+        <div v-for="product in products" :key="product.id" class="w-1/5 p-3 border rounded my-4">
+            <img :src="product.image" alt="">
+            <p>{{ product.description }}</p>
+            <p>{{ product.stock }}</p>
+        </div>
+  
+
 </template>
