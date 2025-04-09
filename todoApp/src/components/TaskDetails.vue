@@ -5,7 +5,7 @@
             <span class="material-icons cursor-pointer" >
                 delete
             </span>
-            <span class="material-icons cursor-pointer">
+            <span class="material-icons cursor-pointer " @click="isFav.toggleFav" :class="isFav.isFav? 'text-red-500' : 'text-gray-500'">
                 favorite
             </span>
 
@@ -16,6 +16,8 @@
 
 <script setup>
 import { defineProps } from 'vue';
+import useTaskStore from '@/stores/TaskStore';
 
 const tasks = defineProps(['task'])
+const isFav = useTaskStore()
 </script>

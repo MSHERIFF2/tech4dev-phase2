@@ -12,11 +12,14 @@ import useTaskStore from '@/stores/TaskStore';
 import { ref } from 'vue';
 
 const todo = ref('')
+const taskStore = useTaskStore()
+const handleSumbit = () => {
+    if (todo.value.trim() !== ''){
+        taskStore.add(todo.value.trim())
+        todo.value = ''
+    }
 
-const handleSumbit = (todo) => {
-    useTaskStore.add(todo)
-
-    todo.value = ''
+    
 }
 </script>
 
