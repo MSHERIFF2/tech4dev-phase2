@@ -7,6 +7,7 @@ import FacebookIcon from "./FacebookIcon.vue";
 import XIcon from "./XIcon.vue";
 import IgIcon from "./IgIcon.vue";
 import YouTubeIcon from "./YouTubeIcon.vue";
+import ChevronRight from "./ChevronRight.vue";
 
  export {
     SearchIcon,
@@ -17,6 +18,7 @@ import YouTubeIcon from "./YouTubeIcon.vue";
     FacebookIcon,
     XIcon,
     IgIcon,
-    YouTubeIcon
+    YouTubeIcon,
+    ChevronRight,
 }
 

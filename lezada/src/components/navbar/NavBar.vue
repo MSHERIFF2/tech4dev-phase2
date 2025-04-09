@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+
 import logo from '@/assets/lezadaLogo.png'
 import { SearchIcon, UserIcon, HeartIcon, CartIcon, MenuIcon } from '../Icons/Icons'
 

@@ -1,7 +1,7 @@
 <template>
     <div>
         <nav>
-            <span class="text-3xl font-bold">X</span>
+          <RouterLink to="/"> <span class="text-3xl font-bold">X</span></RouterLink> 
         </nav>
         <form action="" class=" p-32 flex flex-col w-4/5 m-auto">
             <input type="text" placeholder="Search Product..." class="text-6xl border-b-2 

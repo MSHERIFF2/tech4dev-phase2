@@ -36,7 +36,7 @@ onMounted(
 
 <template>
     
-        <div v-for="product in products" :key="product.id" class="w-1/5 p-3 border rounded my-4">
+        <div v-for="product in products" :key="product.id" class="w-1/5 p-3  my-4">
             <img :src="product.image" alt="">
             <p>{{ product.description }}</p>
             <p>{{ product.stock }}</p>

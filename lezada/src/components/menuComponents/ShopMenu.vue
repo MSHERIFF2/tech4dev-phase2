@@ -37,10 +37,10 @@ const items = ref([
 
 </script>
 <template>
-<div class="pt-10 top-12 bg-transparent z-50 absolute left-[5%] w-[90.5%]">
-  <div class="flex p-8 bg-white shadow text-gray-900 ml-2 mr-2 justify-between gap-x-4 h-[350px] overflow-clip">
+<div class="pt-10 top-12 bg-transparent top-12 z-50 absolute left-[5%] w-[90.5%]">
+  <div class="flex p-6 bg-white shadow text-gray-900 ml-2 mr-2 justify-between gap-x-4 h-[350px] overflow-clip">
     <div>
-      <h1 class="text-l font-bold text-bold">Group One</h1>
+      <h1 class="text-l font-bold ">Group One</h1>
       <ul class="m-2 text-left ml-0" v-for="item in items[0]" :key="item">
         <li>{{ item }}</li>
       </ul>

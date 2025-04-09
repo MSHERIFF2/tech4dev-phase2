@@ -9,9 +9,14 @@ import ShopMenu from './menuComponents/ShopMenu.vue';
 import PageMenu from './menuComponents/PageMenu.vue';
 import ElementMenu from './menuComponents/ElementMenu.vue';
 import BlogMenu from './menuComponents/BlogMenu.vue';
-import MenuLayout from './menuComponents/MenuLayout.vue';
+import NewProducts from './NewProducts.vue';
+import PopularProducts from './PopularProducts.vue';
+import SaleProducts from './SaleProducts.vue';
+
 
 const menuToShow = ref(null)
+const showProduct = ref(false)
+const whichToShow =ref(null)
 const showMenu = (menu) => {
     menuToShow.value = menu
 }
@@ -23,11 +28,20 @@ const showMenu = (menu) => {
             @showMenu="showMenu"
             class="fixed z-40 w-screen bg-white" />
             <transition>
-                <HomeMenu v-if="menuToShow === 'home'" @mouseenter="menuToShow === 'home' ? '' : menuToShow ='home'" @mouseleave="menuToShow = null" />
+                <HomeMenu class="fixed" v-if="menuToShow === 'home'" @mouseenter="menuToShow === 'home' ? '' : menuToShow ='home'" @mouseleave="menuToShow = null" />
                  
             </transition>
             <Transition>
-                <ShopMenu v-if="menuToShow === 'shop'"@mouseenter="menuToShow === 'shop' ? '' : menuToShow ='shop'" @mouseleave="menuToShow = null" />
+                <ShopMenu class="fixed" v-if="menuToShow === 'shop'"@mouseenter="menuToShow === 'shop' ? '' : menuToShow ='shop'" @mouseleave="menuToShow = null" />
+            </Transition>
+            <Transition>
+                <ElementMenu class="fixed" v-if="menuToShow === 'element'"@mouseenter="menuToShow === 'element' ? '' : menuToShow ='element'" @mouseleave="menuToShow = null" />
+            </Transition>
+            <Transition>
+                <PageMenu class="fixed" v-if="menuToShow === 'page'"@mouseenter="menuToShow === 'page' ? '' : menuToShow ='page'" @mouseleave="menuToShow = null" />
+            </Transition>
+            <Transition>
+                <BlogMenu class="fixed" v-if="menuToShow === 'blog'"@mouseenter="menuToShow === 'blog' ? '' : menuToShow ='blog'" @mouseleave="menuToShow = null" />
             </Transition>
     </div>
        
@@ -42,12 +56,21 @@ const showMenu = (menu) => {
                 now</button>
         </div>
         <div class="flex items-center justify-around p-16 bg-white ">
-            <RouterLink to="#" class="text-6xl font-light text-gray-200 hover:text-black">New</RouterLink>
-            <RouterLink to="#" class="text-6xl font-light text-gray-200 hover:text-black">Popular</RouterLink>
-            <RouterLink to="#" class="text-6xl font-light text-gray-200 hover:text-black">Sale</RouterLink>
+            <RouterLink to="#" class="text-6xl font-light text-gray-200 hover:text-black" @mouseover='showProduct=true;  whichToShow = "New"' @mouseenter="showProduct=true; whichToShow = 'New'" @mouseleave="showProduct=false">New</RouterLink>
+            <RouterLink to="#" class="text-6xl font-light text-gray-200 hover:text-black" @mouseover='showProduct=true; whichToShow = "popular"' @mouseenter="showProduct=true; whichToShow = 'popular'" @mouseleave="showProduct=false">Popular</RouterLink>
+            <RouterLink to="#" class="text-6xl font-light text-gray-200 hover:text-black"@mouseover='showProduct=true; whichToShow = "sale"' @mouseenter="showProduct=true; whichToShow = 'sale'" @mouseleave="showProduct=false">Sale</RouterLink>
         </div>
-        <div class="flex flex-wrap gap-x-8 justify-space  rounded border p-3">
+        <div class="flex flex-wrap gap-x-8 justify-space   p-3 " v-if="showProduct !== true">
             <Products />
+        </div>
+        <div class="flex flex-wrap gap-x-8 justify-space   p-3" v-if="whichToShow==='New' && showProduct">
+            <NewProducts />
+        </div>
+        <div class="flex flex-wrap gap-x-8 justify-space   p-3" v-if="showProduct && whichToShow==='popular'">
+            <PopularProducts />
+        </div>
+        <div class="flex flex-wrap gap-x-8 justify-space   p-3" v-if="showProduct && whichToShow==='sale'">
+            <SaleProducts />
         </div>
     </div>
     
