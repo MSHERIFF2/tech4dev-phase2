@@ -24,9 +24,13 @@ const showMenu = (menu) => {
             class="fixed z-40 w-screen bg-white" />
             <transition>
                 <HomeMenu v-if="menuToShow === 'home'" @mouseenter="menuToShow === 'home' ? '' : menuToShow ='home'" @mouseleave="menuToShow = null" />
+                 
             </transition>
+            <Transition>
+                <ShopMenu v-if="menuToShow === 'shop'"@mouseenter="menuToShow === 'shop' ? '' : menuToShow ='shop'" @mouseleave="menuToShow = null" />
+            </Transition>
     </div>
-        <!-- <ShopMenu v-if="menuToShow === 'shop'" /> -->
+       
     <div class="relative z-10 px-16 py-6">
         <div :style="{ backgroundImage: `url(${bgImage})`, backgroundSize: 'cover' }"
             class="relative flex flex-col justify-center h-screen p-16 gap-y-4">
