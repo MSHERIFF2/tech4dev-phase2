@@ -13,7 +13,7 @@ import PopularProducts from './PopularProducts.vue';
 import SaleProducts from './SaleProducts.vue';
 import Page1Products from './Page1Products.vue';
 import Page2Products from './Page2Products.vue';
-import Page3Products from './Page2Products.vue';
+import Page3Products from './Page3Products.vue';
 import Products from './Products.vue';
 
 
@@ -65,24 +65,27 @@ const showPage = (page) => {
                 class="w-32 p-2 mx-16 font-bold text-center text-white uppercase bg-gray-600 hover:bg-transparent hover:border-1 hover:text-black cursor-pointer hover:border-black">shop
                 now</button>
         </div>
-        <div class="flex items-center justify-around p-16 bg-white ">
+        <div class="flex items-center justify-around p-4 ">
             <p class="text-6xl font-light text-gray-200 hover:text-black cursor-pointer"
-                @click="showProduct = true; whichToShow ='New'" @mouseover="showProduct = true; whichToShow = 'New'" @mouseleave="showProduct = false">New</p>
+                @mouseenter="showProduct = true; whichToShow = 'New'">New</p>
             <p class="text-6xl font-light text-gray-200 hover:text-black cursor-pointer"
-                @click="showProduct = true; whichToShow = 'popular'" @mouseover="showProduct = true; whichToShow = 'popular'" @mouseleave="showProduct = false">Popular</p>
+                @mouseenter="showProduct = true; whichToShow = 'popular'" >Popular</p>
             <p class="text-6xl font-light text-gray-200 hover:text-black cursor-pointer"
-                @click="showProduct = true; whichToShow = 'sale'" @mouseover="showProduct = true; whichToShow = 'sale'" @mouseleave="showProduct = false">Sale</p>
+                @mouseenter="showProduct = true; whichToShow = 'sale'" >Sale</p>
         </div>
         <div class="flex flex-wrap gap-x-8 justify-evenly   p-3 " v-if="showProduct !== true && pageToShow === null">
             <Products />
         </div>
-        <div class="flex flex-wrap bg-black gap-x-8 justify-evenly   p-3" v-if="whichToShow === 'New' && showProduct">
+
+        <div class="flex flex-wrap p-10 bg-transparent mt-[-10px] bg-black gap-x-8 justify-evenly" v-if="whichToShow === 'New' && showProduct" @mouseenter="showProduct = true" @mouseleave="showProduct=false">
             <NewProducts />
+
         </div>
-        <div class="flex flex-wrap gap-x-8 justify-evenly   p-3" v-if="showProduct && whichToShow === 'popular'">
+
+        <div class="flex flex-wrap p-10 bg-transparent mt-[-10px] bg-black gap-x-8 justify-evenly" v-if="showProduct && whichToShow === 'popular'" @mouseenter="showProduct = true" @mouseleave="showProduct=false">
             <PopularProducts />
         </div>
-        <div class="flex flex-wrap gap-x-8 justify-evenly   p-3" v-if="showProduct && whichToShow === 'sale'">
+        <div class="flex flex-wrap p-10 bg-transparent mt-[-10px] bg-black gap-x-8 justify-evenly" v-if="showProduct && whichToShow === 'sale'" @mouseenter="showProduct = true" @mouseleave="showProduct=false">
             <SaleProducts />
         </div>
         <div class="flex flex-wrap gap-x-8 justify-evenly   p-3 " v-if="showProduct !== true && pageToShow === 1">
@@ -94,11 +97,11 @@ const showPage = (page) => {
         <div class="flex flex-wrap gap-x-8 justify-evenly   p-3 " v-if="showProduct !== true && pageToShow === 3">
             <Page3Products />
         </div>
-        
+
         <div class="flex gap-x-4 cursor-pointer">
-            <span @click="showPage(1)">1</span>
-            <span @click="showPage(2)">2</span>
-            <span @click="showPage(3)">3</span>
+            <span @mouseenter="showPage(1)">1</span>
+            <span @mouseenter="showPage(2)">2</span>
+            <span @mouseenter="showPage(3)">3</span>
 
         </div>
     </div>

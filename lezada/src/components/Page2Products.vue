@@ -14,7 +14,7 @@ onMounted(
         }
       
         try {
-            const response = await axios.get('http://134.209.223.106/api/products?page=2', {
+            const response = await axios.get('http://134.209.223.106/api/products?page=5', {
                 headers: {
                     Authorization: `Bearer ${token}`
                 },
