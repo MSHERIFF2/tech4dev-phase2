@@ -12,8 +12,9 @@ onMounted(
             console.warn("no token found");
             return;
         }
+      
         try {
-            const response = await axios.get('http://134.209.223.106/api/products?page=1', {
+            const response = await axios.get('http://134.209.223.106/api/products?page=4', {
                 headers: {
                     Authorization: `Bearer ${token}`
                 },
@@ -38,8 +39,9 @@ onMounted(
     
         <div v-for="product in products" :key="product.id" class="w-1/5 p-3  my-4">
             <img :src="product.image" alt="">
-            <p>{{ product.description }}</p>
-            <p>{{ product.stock }}</p>
+            <p>{{ product.name }}</p>
+            
+            <p>${{ product.price }}</p>
         </div>
   
 

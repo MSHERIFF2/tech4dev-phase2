@@ -3,7 +3,6 @@ import bgImage from '@/assets/hero.jpg'
 import { ref, watch } from 'vue'
 import NavBar from './navbar/NavBar.vue';
 import HeroSectionFooter from './HeroSectionFooter.vue';
-import Products from './Products.vue';
 import HomeMenu from './menuComponents/HomeMenu.vue';
 import ShopMenu from './menuComponents/ShopMenu.vue';
 import PageMenu from './menuComponents/PageMenu.vue';
@@ -12,13 +11,20 @@ import BlogMenu from './menuComponents/BlogMenu.vue';
 import NewProducts from './NewProducts.vue';
 import PopularProducts from './PopularProducts.vue';
 import SaleProducts from './SaleProducts.vue';
+import Page1Products from './Page1Products.vue';
+import Page2Products from './Page2Products.vue';
+import Page3Products from './Page2Products.vue';
 
 
 const menuToShow = ref(null)
+const pageToShow = ref(null)
 const showProduct = ref(false)
 const whichToShow =ref(null)
 const showMenu = (menu) => {
     menuToShow.value = menu
+}
+const showPage = (page) => {
+    pageToShow.value = page
 }
 
 </script>
@@ -60,8 +66,14 @@ const showMenu = (menu) => {
             <RouterLink to="#" class="text-6xl font-light text-gray-200 hover:text-black" @mouseover='showProduct=true; whichToShow = "popular"' @mouseenter="showProduct=true; whichToShow = 'popular'" @mouseleave="showProduct=false">Popular</RouterLink>
             <RouterLink to="#" class="text-6xl font-light text-gray-200 hover:text-black"@mouseover='showProduct=true; whichToShow = "sale"' @mouseenter="showProduct=true; whichToShow = 'sale'" @mouseleave="showProduct=false">Sale</RouterLink>
         </div>
-        <div class="flex flex-wrap gap-x-8 justify-space   p-3 " v-if="showProduct !== true">
-            <Products />
+        <div class="flex flex-wrap gap-x-8 justify-space   p-3 " v-if="showProduct !== true && pageToShow === 1">
+            <Page1Products />
+        </div>
+        <div class="flex flex-wrap gap-x-8 justify-space   p-3 " v-if="showProduct !== true && pageToShow === 2">
+            <Page2Products />
+        </div>
+        <div class="flex flex-wrap gap-x-8 justify-space   p-3 " v-if="showProduct !== true && pageToShow === 3">
+            <Page3Products />
         </div>
         <div class="flex flex-wrap gap-x-8 justify-space   p-3" v-if="whichToShow==='New' && showProduct">
             <NewProducts />
@@ -71,6 +83,12 @@ const showMenu = (menu) => {
         </div>
         <div class="flex flex-wrap gap-x-8 justify-space   p-3" v-if="showProduct && whichToShow==='sale'">
             <SaleProducts />
+        </div>
+        <div class="flex gap-x-4 cursor-pointer">
+            <span @click="showPage(1)">1</span>
+            <span @click="showPage(2)">2</span>
+            <span @click="showPage(3)">3</span>
+           
         </div>
     </div>
     
