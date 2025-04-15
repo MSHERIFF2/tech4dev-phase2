@@ -36,12 +36,20 @@ onMounted(
 </script>
 
 <template>
-    
-        <div v-for="product in products" :key="product.id" class="w-1/5 p-3  my-4">
+     <div class="bg-transparent">
+        <div class="flex flex-wrap gap-x-6">
+            <div v-for="product in products" :key="product.id" class="w-1/5 p-3  my-4 bg-gray-100">
+           <div class="p-6">
             <img :src="product.image" alt="">
+           </div> 
             <p>{{ product.name }}</p>
             <p>${{ product.price }}</p>
         </div>
+        
+        </div>
+        </div>
+  
+
   
 
 </template>
