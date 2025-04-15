@@ -67,25 +67,25 @@ const showPage = (page) => {
         </div>
         <div class="flex items-center justify-around p-4 ">
             <p class="text-6xl font-light text-gray-200 hover:text-black cursor-pointer"
-                @mouseenter="showProduct = true; whichToShow = 'New'">New</p>
+                @click="showProduct = true; whichToShow = 'New'">New</p>
             <p class="text-6xl font-light text-gray-200 hover:text-black cursor-pointer"
-                @mouseenter="showProduct = true; whichToShow = 'popular'" >Popular</p>
+                @click="showProduct = true; whichToShow = 'popular'" >Popular</p>
             <p class="text-6xl font-light text-gray-200 hover:text-black cursor-pointer"
-                @mouseenter="showProduct = true; whichToShow = 'sale'" >Sale</p>
+                @click="showProduct = true; whichToShow = 'sale'" >Sale</p>
         </div>
         <div class="flex flex-wrap gap-x-8 justify-evenly   p-3 " v-if="showProduct !== true && pageToShow === null">
             <Products />
         </div>
 
-        <div class="flex flex-wrap p-10 bg-transparent mt-[-10px] bg-black gap-x-8 justify-evenly" v-if="whichToShow === 'New' && showProduct" @mouseenter="showProduct = true" @mouseleave="showProduct=false">
-            <NewProducts />
+        <div class="flex flex-wrap p-10 bg-transparent mt-[-10px] bg-black gap-x-8 justify-evenly" v-if="whichToShow === 'New' && showProduct" @mouseenter="showProduct = true">
+            <Products />
 
         </div>
 
-        <div class="flex flex-wrap p-10 bg-transparent mt-[-10px] bg-black gap-x-8 justify-evenly" v-if="showProduct && whichToShow === 'popular'" @mouseenter="showProduct = true" @mouseleave="showProduct=false">
+        <div class="flex flex-wrap p-10 bg-transparent mt-[-10px] bg-black gap-x-8 justify-evenly" v-if="showProduct && whichToShow === 'popular'" @mouseenter="showProduct = true" >
             <PopularProducts />
         </div>
-        <div class="flex flex-wrap p-10 bg-transparent mt-[-10px] bg-black gap-x-8 justify-evenly" v-if="showProduct && whichToShow === 'sale'" @mouseenter="showProduct = true" @mouseleave="showProduct=false">
+        <div class="flex flex-wrap p-10 bg-transparent mt-[-10px] bg-black gap-x-8 justify-evenly" v-if="showProduct && whichToShow === 'sale'" @mouseenter="showProduct = true" >
             <SaleProducts />
         </div>
         <div class="flex flex-wrap gap-x-8 justify-evenly   p-3 " v-if="showProduct !== true && pageToShow === 1">
@@ -99,9 +99,9 @@ const showPage = (page) => {
         </div>
 
         <div class="flex gap-x-4 cursor-pointer">
-            <span @mouseenter="showPage(1)">1</span>
-            <span @mouseenter="showPage(2)">2</span>
-            <span @mouseenter="showPage(3)">3</span>
+            <span @click="showPage(1)">1</span>
+            <span @click="showPage(2)">2</span>
+            <span @click="showPage(3)">3</span>
 
         </div>
     </div>
