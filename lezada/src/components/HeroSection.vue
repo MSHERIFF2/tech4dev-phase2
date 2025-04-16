@@ -15,10 +15,11 @@ import Products from './Products.vue';
 const pageToShow = ref(null)
 const showProduct = ref(false)
 const whichToShow = ref(null)
-
+const active = ref(null)
 const showPage = (page) => {
     pageToShow.value = page
 }
+
 
 </script>
 <template>
@@ -32,16 +33,19 @@ const showPage = (page) => {
            <p class="mx-16 text-4xl font-bold text-gray-900">Bottle Grinders,</p>
            <p class="mx-16 text-4xl font-bold text-gray-900">Small, 2-pieces</p>
            <button
-               class="w-32 p-2 mx-16 font-bold text-center text-white uppercase bg-gray-600 hover:bg-transparent hover:border-1 hover:text-black cursor-pointer hover:border-black">shop
+               class="w-32 p-2 mx-16 font-bold text-center text-white uppercase bg-gray-600 hover:bg-transparent hover:border-1 hover:text-gray-600 cursor-pointer hover:border-black">shop
                now</button>
        </div>
        <div class="flex items-center justify-around p-4 ">
-           <p class="text-6xl font-light text-gray-200 hover:text-black cursor-pointer"
-               @click="showProduct = true; whichToShow = 'New'">New</p>
-           <p class="text-6xl font-light text-gray-200 hover:text-black cursor-pointer"
-               @click="showProduct = true; whichToShow = 'popular'" >Popular</p>
-           <p class="text-6xl font-light text-gray-200 hover:text-black cursor-pointer"
-               @click="showProduct = true; whichToShow = 'sale'" >Sale</p>
+           <p class="text-6xl font-light text-gray-200  cursor-pointer"
+           :class="whichToShow==='New'? 'text-gray-600': 'text-gray-200'"
+               @click="showProduct = true; whichToShow = 'New'; pageToShow=null" >New</p>
+           <p class="text-6xl font-light text-gray-200  cursor-pointer"
+           :class="whichToShow==='popular'? 'text-gray-600': 'text-gray-200'"
+               @click="showProduct = true; whichToShow = 'popular'; pageToShow=null" >Popular</p>
+           <p class="text-6xl font-light text-gray-200 -black cursor-pointer"
+           :class="whichToShow==='sale'? 'text-gray-600': 'text-gray-200'"
+               @click="showProduct = true; whichToShow = 'sale'; pageToShow=null" >Sale</p>
        </div>
        <div class="flex flex-wrap gap-x-8 justify-evenly   p-3 " v-if="showProduct !== true && pageToShow === null">
            <Products />
@@ -68,10 +72,13 @@ const showPage = (page) => {
            <Page3Products />
        </div>
 
-       <div class="flex gap-x-4 cursor-pointer">
-           <span @click="showPage(1)">1</span>
-           <span @click="showPage(2)">2</span>
-           <span @click="showPage(3)">3</span>
+       <div class="flex gap-x-4 cursor-pointer justify-center text-xl">
+           <span @click="showPage(1); whichToShow=null"
+           :class="pageToShow===1? 'text-black underline font-bold' : 'text-gray-500'">1</span>
+           <span @click="showPage(2);whichToShow=null"
+           :class="pageToShow===2? 'text-black underline font-bold' : 'text-gray-500'">2</span>
+           <span @click="showPage(3);whichToShow=null"
+           :class="pageToShow===3? 'text-black underline font-bold' : 'text-gray-500'">3</span>
 
        </div>
    </div>
