@@ -12,7 +12,7 @@ onMounted(
             console.warn("no token found");
             return;
         }
-      
+
         try {
             const response = await axios.get('http://134.209.223.106/api/products?page=12', {
                 headers: {
@@ -36,20 +36,31 @@ onMounted(
 </script>
 
 <template>
-    
-    <div class="bg-transparent">
+
+   
         <div class="flex flex-wrap gap-x-6">
-            <div v-for="product in products" :key="product.id" class="w-1/5 p-3  my-4 bg-gray-100">
-           <div class="p-6">
-            <img :src="product.image" alt="">
-           </div> 
-            <p>{{ product.name }}</p>
-            <p>${{ product.price }}</p>
+            <div v-for="product in products" :key="product.id" class="relative w-1/5 p-3  my-4 bg-gray-100">
+                <div class="p-6">
+                    <img :src="product.image" alt="">
+                </div>
+                <p>{{ product.name }}</p>
+                <p>${{ product.price }}</p>
+                <div class="z-50 absolute top-6 left-0 w-full h-full">
+                    <div class="w-1/5 h-0.1/5 rounded-[100%] p-4 bg-green-300 text-white justify-center">
+                        <p class="text-center">%</p>
+                    </div>
+                   
+                    <div class="w-1/5 h-0.1/5 rounded-[100%] p-4 bg-red-400 text-white justify-center">
+                        <p class="text-center">new</p>
+                    </div>
+                   
+                </div>
+            </div>
+
+
         </div>
-        
-        </div>
-        </div>
-  
+
+
 
 
 </template>
