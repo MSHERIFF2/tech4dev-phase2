@@ -8,6 +8,7 @@ import XIcon from "./XIcon.vue";
 import IgIcon from "./IgIcon.vue";
 import YouTubeIcon from "./YouTubeIcon.vue";
 import ChevronRight from "./ChevronRight.vue";
+import Compare from "./Compare.vue";
 
  export {
     SearchIcon,
@@ -20,5 +21,6 @@ import ChevronRight from "./ChevronRight.vue";
     IgIcon,
     YouTubeIcon,
     ChevronRight,
+    Compare
 }
 
