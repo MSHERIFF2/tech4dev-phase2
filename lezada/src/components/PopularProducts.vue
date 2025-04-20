@@ -40,7 +40,7 @@ onMounted(
     <div class="flex flex-wrap gap-x-16 gap-y-4">
             <div v-for="product in products" :key="product.id" class="relative group w-1/5  bg-pink-100">
                 <div class="w-full">
-                    <img :src="product.image" alt="">
+                    <img :src="product.image" alt="" class="h-[16em] w-full">
                 </div>
                 <div class="p-3">
                     <p>{{ product.name }}</p>

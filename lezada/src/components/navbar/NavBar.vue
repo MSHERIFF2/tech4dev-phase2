@@ -4,13 +4,19 @@ import logo from '@/assets/lezadaLogo.png'
 import { SearchIcon, UserIcon, HeartIcon, CartIcon, MenuIcon } from '../Icons/Icons'
 
 const emit = defineEmits([
-    'showMenu'
+    'showMenu', 'showWishList', 'showCart'
 ])
-// home menu
+
 const showMenu = (menu) => {
     emit('showMenu', menu)
 }
-// shopMenu
+const wishList = () => {
+    emit('showWishList')
+}
+const cart = () => {
+    emit('showCart')
+}
+
 </script>
 
 <template>
@@ -20,8 +26,7 @@ const showMenu = (menu) => {
         </div>
         <div class="flex items-center gap-x-16 ">
             <div class="flex items-center justify-between font-semibold text-gray-400 gap-x2 text-l">
-                <div class="cursor-pointer hover:underline hover:text-gray-900" @mouseenter="showMenu('home')"
-                    >
+                <div class="cursor-pointer hover:underline hover:text-gray-900" @mouseenter="showMenu('home')">
                     Home
                 </div>
                 <MenuIcon class="mx-1 mt-2 text-xs text-gray-400 " />
@@ -66,8 +71,15 @@ const showMenu = (menu) => {
             <RouterLink to="/login">
                 <UserIcon class="cursor-pointer" />
             </RouterLink>
-            <HeartIcon class="cursor-pointer" />
-            <CartIcon class="cursor-pointer" />
+
+
+            <HeartIcon class="cursor-pointer" @click="wishList" />
+
+
+            <CartIcon class="cursor-pointer" @click="cart" />
+
+
+
         </div>
     </div>
 </template>
