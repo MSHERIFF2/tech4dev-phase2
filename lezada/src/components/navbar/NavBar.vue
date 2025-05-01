@@ -2,6 +2,7 @@
 
 import logo from '@/assets/lezadaLogo.png'
 import { SearchIcon, UserIcon, HeartIcon, CartIcon, MenuIcon } from '../Icons/Icons'
+import { useStore } from '@/stores/WishStore'
 
 const emit = defineEmits([
     'showMenu', 'showWishList', 'showCart'
@@ -16,6 +17,7 @@ const wishList = () => {
 const cart = () => {
     emit('showCart')
 }
+const usestore = useStore()
 
 </script>
 
@@ -73,7 +75,7 @@ const cart = () => {
             </RouterLink>
 
 
-            <HeartIcon class="cursor-pointer" @click="wishList" />
+            <HeartIcon class="cursor-pointer" :class="usestore.active === true ? '' : 'text-red-500'" @click="wishList" />
 
 
             <CartIcon class="cursor-pointer" @click="cart" />

@@ -8,7 +8,12 @@
    <div  class="mx-4 w-auto mt-1 bg-gray">
     <hr>
    </div>
-   
+   <div v-for="(product, index) in myWishStore.Product" :key="index">
+    <img :src="product.image"/>
+    {{product.description}}
+    
+   </div>
+
    
   </div>
 </template>
@@ -22,9 +27,16 @@ modelValue: {
 }
 });
 const emit = defineEmits(['update:modelValue'])
+import {useStore} from '@/stores/WishStore'
+import { onMounted } from 'vue';
 
 const closeWishList = () => {
   emit('update:modelValue', false)
 }
-
+ const myWishStore = useStore()
+ onMounted(() => {
+  myWishStore.getProduct(1).then(() => {
+    console.log(myWishStore.Product) // Log the updated Product array after fetching
+  }).catch(err => console.log(err))
+})
 </script>

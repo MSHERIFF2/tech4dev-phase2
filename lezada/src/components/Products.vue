@@ -2,9 +2,11 @@
 import axios from 'axios';
 import { ref, onMounted } from 'vue'
 import {  HeartIcon, Compare, SearchIcon } from './Icons/Icons'
+import { useStore } from '@/stores/WishStore';
 
 const products = ref([])
 const errorMessage = ref('')
+const usestore = useStore()
 
 onMounted(
     async () => {
@@ -59,7 +61,7 @@ onMounted(
                    
                 </div>
                 <div class="flex flex-col z-70 gap-y-4 justify-center top-4 left-44 invisible  w-full bg-transparent absolute group-hover:visible">
-                    <div class="bg-white w-1/5 p-2"><HeartIcon/></div>
+                    <div class="bg-white w-1/5 p-2"  ><HeartIcon @click="usestore.toggleActive"/></div>
                     <div class="bg-white w-1/5 p-2"><Compare class="size-8"/></div>
                     <div class="bg-white w-1/5 p-2"><SearchIcon/></div>
                 </div>
