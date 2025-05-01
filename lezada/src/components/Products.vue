@@ -24,8 +24,9 @@ onMounted(
 
             });
 
-            if (response.data.status === 'success') {
+            if (response.data.status === 200) {
                 products.value = response.data.data.data;
+                console.log(response.data.data.data.data);
             }
 
 
