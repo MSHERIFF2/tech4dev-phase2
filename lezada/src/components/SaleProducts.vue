@@ -16,12 +16,7 @@ onMounted(
         }
 
         try {
-            const response = await axios.get('http://134.209.223.106/api/products?page=11', {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                },
-
-            });
+            const response = await axios.get("https://e-commerce-api-main-wywgq5.laravel.cloud/api/products?page=10");
 
             if (response.data.status === 'success') {
                 products.value = response.data.data.data;
