@@ -9,19 +9,8 @@ export default function HeroSection() {
 
     useEffect(() => {
         async function fetchProducts() {
-            const token = localStorage.getItem("token");
-            if (!token){
-                console.warn("No token found")
-                return
-            }
-
-            try{
-                const response = await axios.get('http://134.209.223.106/api/products?page=10', {
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    },
-                   
-                });
+                    try{
+                const response = await axios.get("https://e-commerce-api-main-wywgq5.laravel.cloud/api/products?page=10");
                 if (response.data.status === 'success') {
                         setProducts(response.data.data.data)
                 }
